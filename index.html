@@ -23,6 +23,29 @@
   transform: translateY(-1px);
 }
 
+
+.sg-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #25D366, #128C7E);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+  margin-top: 12px;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+  transition: transform 0.15s, filter 0.15s;
+}
+.sg-wa-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
 </style><script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <style id="saasStyles">
@@ -416,43 +439,54 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
 <!-- ==================== ADMIN PANEL MODAL ==================== -->
 <div id="adminModal" style="display:none;">
   <div class="am-box">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-      <h3 style="margin:0;font-size:18px;font-weight:800;color:#FFB067">👑 Panel Pemilik (Owner) - Kelola Akses</h3>
-      <button type="button" class="btn" onclick="closeAdminModal()">✕ Tutup</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;border-bottom:1px solid #2B303E;padding-bottom:14px;">
+      <div>
+        <h3 style="margin:0;font-size:20px;font-weight:850;color:#FFFFFF">👑 Panel Owner: Kelola User Langganan</h3>
+        <p style="margin:4px 0 0;font-size:12.5px;color:#AAAAAA">Anda bisa menambah pembeli baru (ACC) atau menghapus akun agar terlempar keluar.</p>
+      </div>
+      <button type="button" class="btn" onclick="closeAdminModal()" style="border-radius:8px">✕ Tutup</button>
     </div>
     
-    <div style="background:#171A21;border:1px solid #2B2F3C;border-radius:12px;padding:14px;margin-bottom:16px;">
-      <label style="display:block;font-size:13px;font-weight:700;margin-bottom:6px">🔗 Hubungkan Google Sheets (Otomatis & Real-time):</label>
-      <p style="font-size:12px;color:#9AA1AF;margin:0 0 8px">Masukkan link Google Sheet daftar pembeli Anda (Share: Anyone with link can view):</p>
+    <!-- ACC User Baru -->
+    <div style="background:#1C1D24;border:1px solid #2F3444;border-radius:14px;padding:16px;margin-bottom:18px;">
+      <label style="display:block;font-size:13.5px;font-weight:700;color:#FF4D6D;margin-bottom:6px">➕ ACC / Beri Akses Pengguna Baru:</label>
+      <p style="font-size:12px;color:#9AA1AF;margin:0 0 10px">Masukkan alamat Gmail pembeli yang konfirmasi di WhatsApp:</p>
       <div style="display:flex;gap:8px">
-        <input type="text" id="adminSheetInput" placeholder="https://docs.google.com/spreadsheets/d/.../edit" style="flex:1;background:#0E1015;border:1px solid #2F3444;border-radius:8px;padding:8px 10px;font-size:13px;color:#fff">
-        <button type="button" class="btn primary" onclick="saveAdminSheet()">Simpan Sheet</button>
-      </div>
-      <div id="sheetStatusText" style="font-size:12px;color:#22C55E;margin-top:6px"></div>
-    </div>
-
-    <div style="margin-bottom:16px;">
-      <label style="display:block;font-size:13px;font-weight:700;margin-bottom:6px">➕ Tambah Email Pembeli Langsung (ACC Instan):</label>
-      <div style="display:flex;gap:8px">
-        <input type="email" id="newMemberEmail" placeholder="email.pembeli@gmail.com" style="flex:1;background:#0E1015;border:1px solid #2F3444;border-radius:8px;padding:8px 10px;font-size:13px;color:#fff">
-        <button type="button" class="btn primary" onclick="addMemberDirect()">+ Beri Akses</button>
+        <input type="email" id="newMemberEmail" placeholder="contoh: pembeli@gmail.com" style="flex:1;background:#0E1015;border:1px solid #363C4E;border-radius:10px;padding:10px 14px;font-size:13.5px;color:#fff">
+        <button type="button" class="btn primary" onclick="addMemberDirect()" style="padding:10px 18px;font-weight:700;background:linear-gradient(135deg,#FF0033,#CC0000)">+ ACC Member</button>
       </div>
     </div>
 
+    <!-- Daftar User Aktif -->
     <div>
-      <label style="display:block;font-size:13px;font-weight:700;margin-bottom:8px">📋 Daftar Akun yang Diizinkan:</label>
-      <div id="memberListContainer" style="max-height:220px;overflow-y:auto;background:#0E1015;border:1px solid #242834;border-radius:10px;padding:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <label style="font-size:14px;font-weight:700;color:#ECEEF3">👥 Daftar User yang Diizinkan (Langganan Aktif):</label>
+        <span id="memberCountBadge" style="font-size:11.5px;background:#252936;padding:3px 8px;border-radius:6px;color:#AAAAAA"></span>
+      </div>
+      <div id="memberListContainer" style="max-height:260px;overflow-y:auto;background:#0E1015;border:1px solid #242834;border-radius:12px;padding:8px">
       </div>
     </div>
+
+    <!-- Opsional: Google Sheet -->
+    <details style="margin-top:16px;background:#14161D;border:1px solid #252936;border-radius:10px;padding:10px;">
+      <summary style="font-size:12.5px;color:#888;cursor:pointer;font-weight:600">⚙️ Opsi Tambahan: Sambungkan ke Google Sheets (Tabel HP)</summary>
+      <div style="margin-top:10px;">
+        <p style="font-size:12px;color:#9AA1AF;margin:0 0 6px">Tempel link Google Sheet Anda untuk kontrol dari aplikasi Google Sheets di HP:</p>
+        <div style="display:flex;gap:8px">
+          <input type="text" id="adminSheetInput" placeholder="https://docs.google.com/spreadsheets/d/.../edit" style="flex:1;background:#0E1015;border:1px solid #2F3444;border-radius:8px;padding:8px 10px;font-size:12px;color:#fff">
+          <button type="button" class="btn" onclick="saveAdminSheet()">Simpan</button>
+        </div>
+        <div id="sheetStatusText" style="font-size:12px;color:#22C55E;margin-top:6px"></div>
+      </div>
+    </details>
   </div>
 </div>
-
 <script>
 // ==================== SAAS AUTH LOGIC ====================
 (function() {
   const CLIENT_ID = '781988338486-i2i2mr490bp91r3hhck1e7jph3ccjo5n.apps.googleusercontent.com';
   const ADMIN_EMAIL = 'yulison47@gmail.com';
-  const TG_LINK = 'https://t.me/+6282138004443';
+  const WA_NUMBER = '6282138004443';
   const GEMINI_SHARE_URL = 'https://gemini.google.com/share/c5b85080d7a6?social_preview=false&skid=9b3c5111-1236-4bcb-871a-9b55c8052d78';
 
   // Strictly in-memory session (resets on reload or close)
@@ -635,10 +669,10 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
     document.getElementById('sgUserName').textContent = name;
     document.getElementById('sgUserEmail').textContent = email;
 
-    const tgBtn = document.getElementById('sgTgLink');
-    if (tgBtn) {
-      tgBtn.href = TG_LINK;
-      tgBtn.title = 'Hubungi Admin di Telegram (0821-3800-4443)';
+    const waBtn = document.getElementById('sgWaLink');
+    if (waBtn) {
+      const msg = encodeURIComponent('Halo Admin Frame Studio, saya sudah login dengan akun Google: ' + email + ' (' + name + '). Mohon di-ACC akses akun langganan saya.');
+      waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + msg;
     }
   }
 
@@ -799,22 +833,31 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
     const container = document.getElementById('memberListContainer');
     if (!container) return;
     const list = getLocalMembers();
+    const countBadge = document.getElementById('memberCountBadge');
+    if (countBadge) countBadge.textContent = list.length + ' User Terdaftar';
     container.innerHTML = '';
+    
     list.forEach(m => {
       const row = document.createElement('div');
       row.style.display = 'flex';
       row.style.justifyContent = 'space-between';
       row.style.alignItems = 'center';
-      row.style.padding = '8px 10px';
-      row.style.borderBottom = '1px solid #1E222D';
+      row.style.padding = '10px 12px';
+      row.style.borderBottom = '1px solid #1A1D26';
+      row.style.borderRadius = '8px';
+      row.style.marginBottom = '4px';
+      row.style.background = '#14161D';
       
       const isOwner = (m.toLowerCase() === ADMIN_EMAIL.toLowerCase());
       row.innerHTML = `
-        <div>
-          <span style="font-weight:600;font-size:13.5px;color:#ECEEF3">${m}</span>
-          ${isOwner ? '<span style="font-size:11px;background:#FF6A2A;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700">OWNER</span>' : '<span style="font-size:11px;color:#22C55E;margin-left:6px">● Aktif</span>'}
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:16px">${isOwner ? '👑' : '👤'}</span>
+          <div>
+            <div style="font-weight:600;font-size:13.5px;color:#FFFFFF">${m}</div>
+            <div style="font-size:11px;color:${isOwner ? '#FF4D6D' : '#22C55E'}">${isOwner ? 'SUPERADMIN (Owner)' : '● Langganan Aktif'}</div>
+          </div>
         </div>
-        ${!isOwner ? `<button type="button" class="btn" style="padding:4px 8px;font-size:12px;color:#F04438;border-color:#5A1F1F" onclick="removeMemberDirect('${m}')">✕ Cabut Akses</button>` : ''}
+        ${!isOwner ? `<button type="button" class="btn" style="padding:6px 12px;font-size:12px;font-weight:700;color:#FF4D4D;background:rgba(255,0,51,0.1);border:1px solid rgba(255,0,51,0.3);border-radius:8px" onclick="removeMemberDirect('${m}')">🗑️ Hapus & Cabut Akses</button>` : '<span style="font-size:11px;color:#888">Akses Penuh</span>'}
       `;
       container.appendChild(row);
     });

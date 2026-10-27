@@ -30,28 +30,28 @@
   position: fixed;
   inset: 0;
   z-index: 999999;
-  background: radial-gradient(ellipse 90% 70% at 50% 10%, rgba(255, 106, 42, 0.18), transparent 65%),
-              radial-gradient(ellipse 60% 50% at 50% 90%, rgba(20, 24, 38, 0.6), transparent),
-              #07080B;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 0, 51, 0.22), transparent 70%),
+              radial-gradient(circle at 80% 80%, rgba(255, 36, 66, 0.08), transparent 50%),
+              #0F0F0F;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  color: #ECEEF3;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  color: #F1F1F1;
+  font-family: "Roboto", "YouTube Sans", Inter, system-ui, -apple-system, sans-serif;
 }
 .sg-card {
   width: min(440px, 100%);
-  background: rgba(18, 20, 27, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(255, 138, 75, 0.5);
-  border-radius: 28px;
-  padding: 40px 32px 34px;
+  background: rgba(22, 22, 24, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(255, 36, 66, 0.65);
+  border-radius: 24px;
+  padding: 38px 32px 32px;
   text-align: center;
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85),
-              0 0 60px rgba(255, 106, 42, 0.12);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9),
+              0 0 50px rgba(255, 0, 51, 0.15);
   animation: sgCardPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -62,73 +62,74 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px;
+  width: 190px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #FF8C42, #FF5A1F, transparent);
+  background: linear-gradient(90deg, transparent, #FF0033, #FF4D6D, transparent);
+  box-shadow: 0 0 12px #FF0033;
 }
 @keyframes sgCardPop {
-  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Cinematic "Frame" Wordmark Logo */
+/* Cinematic "Frame" Wordmark with YouTube Red Glow */
 .frame-logo-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .frame-logo-box {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 34px;
+  padding: 10px 36px;
 }
 .frame-brackets {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 10px rgba(255, 106, 42, 0.45));
+  filter: drop-shadow(0 0 12px rgba(255, 0, 51, 0.55));
 }
 .frame-wordmark {
-  font-family: 'Space Grotesk', 'Outfit', Inter, sans-serif;
-  font-size: 32px;
+  font-family: 'Space Grotesk', 'Outfit', 'Roboto', sans-serif;
+  font-size: 33px;
   font-weight: 850;
   letter-spacing: 0.06em;
-  background: linear-gradient(180deg, #FFFFFF 15%, #F0F3F9 60%, #FFB067 100%);
+  background: linear-gradient(180deg, #FFFFFF 20%, #E8E8E8 65%, #FF2442 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 4px 12px rgba(255, 106, 42, 0.3));
+  filter: drop-shadow(0 4px 14px rgba(255, 0, 51, 0.35));
 }
 
 .sg-pill-badge {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 5px 12px;
+  padding: 5px 13px;
   border-radius: 99px;
-  background: rgba(255, 106, 42, 0.1);
-  color: #FFB067;
-  border: 1px solid rgba(255, 106, 42, 0.28);
-  margin-bottom: 18px;
+  background: rgba(255, 0, 51, 0.12);
+  color: #FF4D6D;
+  border: 1px solid rgba(255, 0, 51, 0.3);
+  margin-bottom: 16px;
 }
 .sg-pill-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #FF6A2A;
-  box-shadow: 0 0 8px #FF6A2A;
-  animation: sgPulse 2s infinite;
+  background: #FF0033;
+  box-shadow: 0 0 10px #FF0033;
+  animation: sgPulse 1.8s infinite;
 }
 @keyframes sgPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 0.35; transform: scale(0.85); }
 }
 
 .sg-title {
@@ -139,25 +140,25 @@
   color: #FFFFFF;
 }
 .sg-title span {
-  background: linear-gradient(180deg, #FFB067, #FF5A1F);
+  background: linear-gradient(180deg, #FF4D6D, #FF0033);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .sg-sub {
-  color: #9AA1AF;
+  color: #AAAAAA;
   font-size: 14px;
   line-height: 1.55;
-  margin: 0 0 26px;
-  padding: 0 8px;
+  margin: 0 0 24px;
+  padding: 0 10px;
 }
 .sg-btn-wrap {
   display: flex;
   justify-content: center;
-  margin: 8px 0 20px;
+  margin: 6px 0 18px;
 }
 
-/* Hyper-Aesthetic Google Button */
+/* Hyper-Aesthetic YouTube Style Google Button */
 .sg-google-btn-modern {
   display: inline-flex;
   align-items: center;
@@ -166,22 +167,22 @@
   width: 100%;
   max-width: 320px;
   background: #FFFFFF;
-  color: #1F2328;
+  color: #0F0F0F;
   border: none;
   border-radius: 99px;
   padding: 13px 24px;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: "Roboto", Inter, system-ui, sans-serif;
   font-size: 14.5px;
   font-weight: 700;
   letter-spacing: -0.01em;
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 25px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 255, 255, 0.12);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .sg-google-btn-modern:hover {
-  background: #F8FAFD;
+  background: #F2F2F2;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 35px rgba(255, 106, 42, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 0, 51, 0.28);
 }
 .sg-google-btn-modern:active {
   transform: translateY(0);
@@ -196,14 +197,14 @@
   justify-content: center;
   gap: 6px;
   font-size: 12px;
-  color: #636A79;
+  color: #717171;
   line-height: 1.4;
   margin-top: 4px;
 }
 
 .sg-denied {
-  background: rgba(240, 68, 56, 0.08);
-  border: 1px solid rgba(240, 68, 56, 0.3);
+  background: rgba(255, 0, 51, 0.08);
+  border: 1px solid rgba(255, 0, 51, 0.35);
   border-radius: 20px;
   padding: 24px 20px;
   margin-top: 14px;
@@ -212,11 +213,11 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 2px solid #FF6A2A;
+  border: 2px solid #FF0033;
   margin: 0 auto 10px;
   display: block;
   object-fit: cover;
-  box-shadow: 0 4px 15px rgba(255, 106, 42, 0.3);
+  box-shadow: 0 4px 18px rgba(255, 0, 51, 0.4);
 }
 .sg-wa-btn {
   display: inline-flex;
@@ -241,8 +242,8 @@
 }
 .sg-secondary-btn {
   background: none;
-  border: 1px solid #333846;
-  color: #9AA1AF;
+  border: 1px solid #333;
+  color: #AAAAAA;
   padding: 9px 18px;
   border-radius: 10px;
   cursor: pointer;
@@ -251,7 +252,7 @@
   transition: all 0.15s;
 }
 .sg-secondary-btn:hover {
-  border-color: #555E72;
+  border-color: #555;
   color: #fff;
 }
 
@@ -260,13 +261,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(23, 26, 33, 0.85);
+  background: rgba(24, 24, 27, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 99px;
   padding: 3px 12px 3px 4px;
   font-size: 13px;
   font-weight: 600;
-  color: #ECEEF3;
+  color: #F1F1F1;
 }
 .sj-user-pill img {
   width: 26px;
@@ -282,8 +283,9 @@
   text-transform: uppercase;
 }
 .sj-role-admin {
-  background: linear-gradient(135deg, #FFB067, #FF5A1F);
-  color: #2a1103;
+  background: linear-gradient(135deg, #FF4D6D, #FF0033);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
 }
 .sj-role-member {
   background: rgba(34, 197, 94, 0.15);
@@ -294,7 +296,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(135deg, #FF7C40, #EE5413);
+  background: linear-gradient(135deg, #FF0033, #CC0000);
   border: none;
   color: #fff;
   padding: 7px 14px;
@@ -302,19 +304,19 @@
   font-weight: 700;
   font-size: 13px;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(255, 106, 42, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 0, 51, 0.35);
   transition: filter 0.15s, transform 0.15s;
 }
 .sj-gemini-btn:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
   transform: translateY(-1px);
 }
 #adminModal {
   position: fixed;
   inset: 0;
   z-index: 999998;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -322,13 +324,13 @@
 }
 .am-box {
   width: min(540px, 100%);
-  background: #13151B;
-  border: 1px solid #2B303E;
+  background: #181818;
+  border: 1px solid #303030;
   border-radius: 24px;
   padding: 28px;
   max-height: 85vh;
   overflow-y: auto;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.8);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.9), 0 0 35px rgba(255, 0, 51, 0.1);
 }
 </style>
 
@@ -348,8 +350,8 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
           <path d="M 132 26 L 132 40 L 118 40" stroke="url(#flGrad1)" stroke-width="2.5" stroke-linecap="round"/>
           <defs>
             <linearGradient id="flGrad1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#FFB067"/>
-              <stop offset="100%" stop-color="#FF5A1F"/>
+              <stop offset="0%" stop-color="#FF4D6D"/>
+              <stop offset="100%" stop-color="#FF0033"/>
             </linearGradient>
           </defs>
         </svg>

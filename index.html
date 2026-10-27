@@ -517,119 +517,111 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
     return false;
   }
 
-  // Initialize Google Identity Services
-  function initGoogleAuth() {
-    if (typeof google === 'undefined' || !google.accounts || !google.accounts.id) {
-      setTimeout(initGoogleAuth, 300);
+  // Token Client for Popup OAuth2
+  let tokenClient = null;
+  function ensureTokenClient() {
+    if (!tokenClient && typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
+      try {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: 'email profile openid',
+          callback: async function(tokenResponse) {
+            if (tokenResponse && tokenResponse.access_token) {
+              try {
+                const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                  headers: { Authorization: 'Bearer ' + tokenResponse.access_token }
+                });
+                const u = await res.json();
+                if (u && u.email) {
+                  processUserLogin(u.email, u.name || 'Pengguna', u.picture || '');
+                }
+              } catch (err) {
+                alert('Gagal mengambil profil Google: ' + err.message);
+              }
+            }
+          }
+        });
+      } catch (e) {
+        console.warn('Failed initTokenClient:', e);
+      }
+    }
+    return tokenClient;
+  }
+
+  // Trigger login when user clicks the button
+  window.sjTriggerLogin = function() {
+    const tc = ensureTokenClient();
+    if (tc) {
+      tc.requestAccessToken({ prompt: 'select_account' });
       return;
     }
 
-    google.accounts.id.initialize({
-      client_id: CLIENT_ID,
-      callback: handleCredentialResponse,
-      auto_select: false
-    });
-
-    const btnContainer = document.getElementById('gSignInBtn');
-    if (btnContainer) {
-      google.accounts.id.renderButton(btnContainer, {
-        theme: 'filled_black',
-        size: 'large',
-        shape: 'pill',
-        width: 280,
-        text: 'signin_with',
-        locale: 'id'
-      });
-    }
-
-    initTokenClient();
-    // Attempt One-Tap prompt
-    try {
-      google.accounts.id.prompt();
-    } catch {}
-  }
-
-  // Handle Google Login Callback
-  
-  // Global callback for Google GIS
-  window.sjHandleCredentialResponse = handleCredentialResponse;
-
-  let tokenClient = null;
-  function initTokenClient() {
-    if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
-      tokenClient = google.accounts.oauth2.initTokenClient({
-        client_id: CLIENT_ID,
-        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-        callback: async function(tokenResponse) {
-          if (tokenResponse && tokenResponse.access_token) {
-            try {
-              const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-                headers: { Authorization: 'Bearer ' + tokenResponse.access_token }
-              });
-              const u = await res.json();
-              if (u && u.email) {
-                processUserLogin(u.email, u.name || 'Pengguna', u.picture || '');
-              }
-            } catch (err) {
-              alert('Gagal mengambil data profil Google: ' + err.message);
-            }
-          }
-        }
-      });
-    }
-  }
-
-  window.sjTriggerLogin = function() {
-    if (tokenClient) {
-      tokenClient.requestAccessToken();
-    } else if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
-      google.accounts.id.prompt();
+    if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+      try {
+        google.accounts.id.prompt();
+      } catch {}
     } else {
       alert('Sistem Google Login sedang memuat... Silakan tunggu 2 detik lalu klik lagi.');
     }
   };
 
-  async function processUserLogin(email, name, picture) {
-    email = email.toLowerCase().trim();
-    const isOwner = (email === ADMIN_EMAIL.toLowerCase().trim());
-    const localList = getLocalMembers().map(e => e.toLowerCase().trim());
-    let isApproved = isOwner || localList.includes(email);
-
-    if (!isApproved) {
-      isApproved = await checkGoogleSheet(email);
-    }
-
-    processUserLogin(email, name, picture);
-  }
-
-  async function handleCredentialResponse(response) {
+  // Global callback for Google GIS
+  window.sjHandleCredentialResponse = function(response) {
+    if (!response || !response.credential) return;
     const payload = parseJwt(response.credential);
     if (!payload || !payload.email) {
       alert('Gagal membaca data akun Google. Silakan coba lagi.');
       return;
     }
+    processUserLogin(payload.email, payload.name || 'Pengguna', payload.picture || '');
+  };
 
-    const email = payload.email.toLowerCase().trim();
-    const name = payload.name || 'Pengguna';
-    const picture = payload.picture || '';
-
-    // Check authorization
+  // Main Login Processor (Synchronous fast check, then async Sheet check)
+  function processUserLogin(email, name, picture) {
+    email = (email || '').toLowerCase().trim();
     const isOwner = (email === ADMIN_EMAIL.toLowerCase().trim());
     const localList = getLocalMembers().map(e => e.toLowerCase().trim());
-    let isApproved = isOwner || localList.includes(email);
-
-    if (!isApproved) {
-      isApproved = await checkGoogleSheet(email);
-    }
+    const isApproved = isOwner || localList.includes(email);
 
     if (isApproved) {
-      // Access Granted!
       window._sjUser = { email, name, picture, isOwner };
       unlockStudio();
-    } else {
-      // Access Denied (Need Approval)
-      showDeniedScreen(email, name, picture);
+      return;
     }
+
+    // Check Google Sheet asynchronously
+    checkGoogleSheet(email).then(sheetApproved => {
+      if (sheetApproved) {
+        window._sjUser = { email, name, picture, isOwner: false };
+        unlockStudio();
+      } else {
+        showDeniedScreen(email, name, picture);
+      }
+    }).catch(() => {
+      showDeniedScreen(email, name, picture);
+    });
+  }
+
+  // Initialize Google Identity Services
+  function initGoogleAuth() {
+    if (typeof google === 'undefined' || !google.accounts) {
+      setTimeout(initGoogleAuth, 200);
+      return;
+    }
+
+    if (google.accounts.id) {
+      try {
+        google.accounts.id.initialize({
+          client_id: CLIENT_ID,
+          callback: window.sjHandleCredentialResponse,
+          auto_select: false
+        });
+      } catch (e) {
+        console.warn('GIS init error:', e);
+      }
+    }
+
+    ensureTokenClient();
   }
 
   function showDeniedScreen(email, name, picture) {
@@ -641,7 +633,7 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
     document.getElementById('sgUserName').textContent = name;
     document.getElementById('sgUserEmail').textContent = email;
 
-    const waText = encodeURIComponent('Halo Admin SJ Frame, saya sudah login dengan email: ' + email + ' (' + name + '). Mohon di-ACC akses studio saya.');
+    const waText = encodeURIComponent('Halo Admin Frame Studio, saya sudah login dengan akun Google: ' + email + ' (' + name + '). Mohon di-ACC akses akun saya.');
     document.getElementById('sgWaLink').href = 'https://wa.me/' + WA_NUMBER + '?text=' + waText;
   }
 
@@ -759,8 +751,7 @@ const t=["gemini-3-flash-preview","gemini-3.8-flash","gemini-3.6-flash","gemini-
       document.getElementById('sheetStatusText').textContent = 'Google Sheet dilepas.';
       return;
     }
-    // Extract ID
-    const match = input.match(//d/([a-zA-Z0-9-_]+)/);
+    const match = input.match(/\/d\/([a-zA-Z0-9-_]+)/);
     const id = match ? match[1] : input;
     localStorage.setItem('sj_sheet_id', id);
     document.getElementById('sheetStatusText').textContent = '✓ Google Sheet tersimpan! Sistem akan memeriksa tabel ini secara otomatis.';

@@ -1368,7 +1368,7 @@ function handleRequest(e){
     }
   }
 
-  const DEFAULT_WEBHOOK_URL = '';
+  const DEFAULT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwWqsrCGRbBCsfrzxggBiTVUsI9Acv3ykXlXN4mbgYzcDqEO2q0S2xHYrp9iLi2hTVr/exec';
   function getWebhookUrl() {
     try {
       return localStorage.getItem('sj_apps_script_webhook') || DEFAULT_WEBHOOK_URL;

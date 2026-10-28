@@ -1368,7 +1368,7 @@ function handleRequest(e){
     }
   }
 
-  const DEFAULT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwWqsrCGRbBCsfrzxggBiTVUsI9Acv3ykXlXN4mbgYzcDqEO2q0S2xHYrp9iLi2hTVr/exec';
+  const DEFAULT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwWuXn6AzQS-XQdpUJMk2UhH-JzhNOyzqdrwgcG4oy4GFmx3k2KkvTY5Nfl0yJj32mH/exec';
   function getWebhookUrl() {
     try {
       return localStorage.getItem('sj_apps_script_webhook') || DEFAULT_WEBHOOK_URL;
@@ -2185,7 +2185,7 @@ function handleRequest(e){
     if (webhook) {
       try {
         const pingUrl = webhook + (webhook.includes('?') ? '&' : '?') + 'action=add&email=' + encodeURIComponent(email) + '&_t=' + Date.now();
-        await fetch(pingUrl, { mode: 'no-cors' });
+        await fetch(pingUrl, { mode: 'no-cors', credentials: 'include' });
         
         emailInput.value = '';
         setTimeout(async () => {
@@ -2246,7 +2246,7 @@ function handleRequest(e){
       if (webhook) {
         try {
           const pingUrl = webhook + (webhook.includes('?') ? '&' : '?') + 'action=delete&email=' + encodeURIComponent(email) + '&_t=' + Date.now();
-          await fetch(pingUrl, { mode: 'no-cors' });
+          await fetch(pingUrl, { mode: 'no-cors', credentials: 'include' });
           setTimeout(async () => {
             await window.refreshAdminMembers();
             alert(`✅ Email ${email} BERHASIL DIHAPUS dari Google Sheet!\n\nAkses pengguna telah dicabut sepenuhnya.`);

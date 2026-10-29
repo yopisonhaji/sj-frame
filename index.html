@@ -398,7 +398,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(135deg, #FF0033, #CC0000);
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
   border: none;
   color: #fff;
   padding: 7px 14px;
@@ -406,9 +406,351 @@ html, body {
   font-weight: 700;
   font-size: 13px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(255, 0, 51, 0.35);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
   transition: filter 0.15s, transform 0.15s;
 }
+/* ==================== SJ HUB SCREEN (2-MENU PORTAL) ==================== */
+.sj-hub-section {
+  position: relative;
+  min-height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: radial-gradient(ellipse at top, #191216 0%, #0F0F12 55%, #08080A 100%);
+  box-sizing: border-box;
+}
+
+.sj-hub-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sj-hub-header {
+  text-align: center;
+}
+
+.sj-hub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 0, 51, 0.12);
+  border: 1px solid rgba(255, 0, 51, 0.3);
+  color: #FF6685;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.sj-hub-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00E676;
+  box-shadow: 0 0 8px #00E676;
+}
+
+.sj-hub-title {
+  font-size: 32px;
+  font-weight: 850;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.sj-hub-welcome {
+  font-size: 15px;
+  color: #9E9EA7;
+  margin: 0 auto;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.sj-hub-user-highlight {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.sj-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .sj-hub-section {
+    padding: 24px 14px;
+  }
+  .sj-hub-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .sj-hub-title {
+    font-size: 24px;
+  }
+}
+
+.sj-hub-card {
+  position: relative;
+  background: #141418;
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.sj-hub-card:hover {
+  transform: translateY(-5px);
+}
+
+.sj-hub-card-studio {
+  border-color: rgba(255, 0, 51, 0.25);
+}
+
+.sj-hub-card-studio:hover {
+  border-color: #FF0033;
+  box-shadow: 0 20px 50px rgba(255, 0, 51, 0.2), 0 0 0 1px rgba(255, 0, 51, 0.4);
+}
+
+.sj-hub-card-clip {
+  border-color: rgba(66, 133, 244, 0.25);
+}
+
+.sj-hub-card-clip:hover {
+  border-color: #4285F4;
+  box-shadow: 0 20px 50px rgba(66, 133, 244, 0.2), 0 0 0 1px rgba(66, 133, 244, 0.4);
+}
+
+.sj-hub-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.8px;
+  color: #A1A1AA;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.sj-hub-icon-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.sj-dot-red {
+  background: #FF0033;
+  box-shadow: 0 0 8px #FF0033;
+}
+.sj-dot-purple {
+  background: #4285F4;
+  box-shadow: 0 0 8px #4285F4;
+}
+
+.sj-hub-card-icon-wrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sj-icon-studio {
+  background: linear-gradient(135deg, rgba(255, 0, 51, 0.2), rgba(255, 77, 109, 0.08));
+  border: 1px solid rgba(255, 0, 51, 0.35);
+  color: #FF4D6D;
+}
+
+.sj-icon-clip {
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.2), rgba(168, 85, 247, 0.08));
+  border: 1px solid rgba(66, 133, 244, 0.35);
+  color: #60A5FA;
+}
+
+.sj-hub-card-icon-wrap svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sj-hub-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.sj-hub-card-desc {
+  font-size: 13.5px;
+  color: #A1A1AA;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  min-height: 64px;
+}
+
+.sj-hub-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.sj-hub-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: #D4D4D8;
+}
+
+.sj-hub-features li span {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.sj-hub-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  min-height: 48px;
+}
+
+.sj-hub-btn-primary {
+  background: linear-gradient(135deg, #FF0033 0%, #CC0029 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(255, 0, 51, 0.4);
+}
+
+.sj-hub-btn-primary:hover {
+  background: linear-gradient(135deg, #FF1A47 0%, #E6002E 100%);
+  box-shadow: 0 6px 24px rgba(255, 0, 51, 0.55);
+  transform: translateY(-1px);
+}
+
+.sj-hub-btn-clip {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.4);
+}
+
+.sj-hub-btn-clip:hover {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.55);
+  transform: translateY(-1px);
+}
+
+.sj-hub-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(20, 20, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 18px;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 600px) {
+  .sj-hub-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+}
+
+.sj-hub-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sj-hub-user-pill img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #FF0033;
+}
+
+.sj-hub-email {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.sj-hub-status {
+  font-size: 11px;
+  color: #00E676;
+}
+
+.sj-hub-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sj-hub-admin-btn {
+  background: rgba(255, 0, 51, 0.12);
+  border: 1px solid #FF0033;
+  color: #FF4D6D;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sj-hub-admin-btn:hover {
+  background: #FF0033;
+  color: #FFFFFF;
+}
+
+.sj-hub-logout-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #A1A1AA;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sj-hub-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
 .sj-gemini-btn:hover {
   filter: brightness(1.15);
   transform: translateY(-1px);
@@ -438,6 +780,7 @@ html, body {
 /* Deep Lock Screen: When not authenticated or session revoked, completely seal the app */
 body.sj-locked #landing,
 body.sj-locked #studio,
+body.sj-locked #sjHubScreen,
 body.sj-locked header .actions,
 body.sj-locked .modal:not(#saasGate):not(#adminModal) {
   display: none !important;
@@ -1046,7 +1389,105 @@ html, body {
 
 </style>
 
-</head><body class="sj-locked"><header class="top"><div class="brand"><div class="logo"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="amLogoA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF4D6D"/><stop offset="1" stop-color="#FF0033"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="17" fill="url(#amLogoA)"/><path d="M28 21.5 45.5 32 28 42.5Z" fill="#fff" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M11 24.5h9M8 32h12M11 39.5h9" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M50 8.5l1.7 4.6 4.6 1.7-4.6 1.7-1.7 4.6-1.7-4.6-4.6-1.7 4.6-1.7z" fill="#fff"/></svg></div><b>Frame</b><span class="sub">Motion graphics otomatis dengan AI</span></div><div class="actions"><span id="saveState" class="save-state" role="status"></span><button class="btn" id="btnGuide" type="button" aria-label="Panduan" title="Panduan"><span aria-hidden="true">📖</span><span class="lbl"> Panduan</span></button><button class="btn" id="btnNew" type="button" aria-label="Video baru" title="Video baru" hidden><span aria-hidden="true">＋</span><span class="lbl"> Video baru</span></button><button class="btn" id="btnFocus" type="button" aria-label="Layar penuh (mode fokus untuk mengedit)" title="Layar penuh / mode fokus"><span aria-hidden="true">⛶</span></button><button class="btn primary" id="btnRender" type="button" hidden>⬇ Render Video</button></div></header><section id="landing"><div class="hero-brand"><div class="hero-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="amLogoB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF4D6D"/><stop offset="1" stop-color="#FF0033"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="17" fill="url(#amLogoB)"/><path d="M28 21.5 45.5 32 28 42.5Z" fill="#fff" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M11 24.5h9M8 32h12M11 39.5h9" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M50 8.5l1.7 4.6 4.6 1.7-4.6 1.7-1.7 4.6-1.7-4.6-4.6-1.7 4.6-1.7z" fill="#fff"/></svg></div><div><div class="hero-name">SJ Frame</div><span class="eyebrow">● Sutradara motion AI</span></div></div><h1>Bikin video motion profesional<br><em>cukup sekali klik.</em></h1><p class="lead">Upload video kamu ngomong, atau cukup isi info produk + foto/video produkmu. AI menyusun caption, b-roll, animasi penjelasan, latar bergerak, transisi, ganti angle kamera, musik &amp; efek suara, sampai ajakan (CTA). Hasilnya langsung jadi MP4 di browser, dan semua editan tersimpan otomatis.</p>
+</head><body class="sj-locked"><header class="top"><div class="brand" onclick="if(window._sjUser && window.openHubMenu) window.openHubMenu()" style="cursor:pointer" title="Kembali ke Menu Utama"><div class="logo"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="amLogoA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF4D6D"/><stop offset="1" stop-color="#FF0033"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="17" fill="url(#amLogoA)"/><path d="M28 21.5 45.5 32 28 42.5Z" fill="#fff" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M11 24.5h9M8 32h12M11 39.5h9" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M50 8.5l1.7 4.6 4.6 1.7-4.6 1.7-1.7 4.6-1.7-4.6-4.6-1.7 4.6-1.7z" fill="#fff"/></svg></div><b>Frame</b><span class="sub">Motion graphics otomatis dengan AI</span></div><div class="actions"><span id="saveState" class="save-state" role="status"></span><button class="btn" id="btnGuide" type="button" aria-label="Panduan" title="Panduan"><span aria-hidden="true">📖</span><span class="lbl"> Panduan</span></button><button class="btn" id="btnNew" type="button" aria-label="Video baru" title="Video baru" hidden><span aria-hidden="true">＋</span><span class="lbl"> Video baru</span></button><button class="btn" id="btnFocus" type="button" aria-label="Layar penuh (mode fokus untuk mengedit)" title="Layar penuh / mode fokus"><span aria-hidden="true">⛶</span></button><button class="btn primary" id="btnRender" type="button" hidden>⬇ Render Video</button></div></header>
+<!-- ==================== POST-LOGIN 2-MENU HUB / DASHBOARD ==================== -->
+<section id="sjHubScreen" class="sj-hub-section" style="display:none;">
+  <div class="sj-hub-container">
+    <div class="sj-hub-header">
+      <div class="sj-hub-badge">
+        <span class="sj-hub-dot"></span>
+        SATUJALAN SUITE • CREATOR PORTAL
+      </div>
+      <h1 class="sj-hub-title">Pilih Ruang Kerja Anda</h1>
+      <p class="sj-hub-welcome">
+        Selamat datang, <span id="sjHubUserName" class="sj-hub-user-highlight">Creator</span> 👋 Silakan pilih menu di bawah ini untuk memulai:
+      </p>
+    </div>
+
+    <div class="sj-hub-grid">
+      <!-- MENU 1: EDIT VIDEO FRAME SATUJALAN -->
+      <div class="sj-hub-card sj-hub-card-studio">
+        <div class="sj-hub-card-badge">
+          <span class="sj-hub-icon-dot sj-dot-red"></span>
+          STUDIO VIDEO MOTION AI
+        </div>
+        <div class="sj-hub-card-icon-wrap sj-icon-studio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+          </svg>
+        </div>
+        <h2 class="sj-hub-card-title">Edit Video Frame Satujalan</h2>
+        <p class="sj-hub-card-desc">
+          Studio pembuat video motion profesional otomatis. Dilengkapi kinetic typography bercahaya, b-roll, transisi mulus, dynamic camera punch-in, audio SFX, hingga render MP4 langsung di browser.
+        </p>
+        <ul class="sj-hub-features">
+          <li><span>⚡</span> Kinetic Subtitle & Typography Pendar</li>
+          <li><span>🎬</span> Auto Punch-In Zoom & Transisi Sinematik</li>
+          <li><span>✨</span> B-Roll AI & Layout Produk Otomatis</li>
+          <li><span>💾</span> Render Cepat MP4 di Browser & Auto-Save</li>
+        </ul>
+        <button type="button" class="sj-hub-btn sj-hub-btn-primary" onclick="openVideoStudio()">
+          <span>🚀 Masuk ke Edit Video Frame</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <!-- MENU 2: CLIP SATUJALAN -->
+      <div class="sj-hub-card sj-hub-card-clip">
+        <div class="sj-hub-card-badge">
+          <span class="sj-hub-icon-dot sj-dot-purple"></span>
+          AI CONTENT & CLIPPING ENGINE
+        </div>
+        <div class="sj-hub-card-icon-wrap sj-icon-clip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <h2 class="sj-hub-card-title">Clip Satujalan</h2>
+        <p class="sj-hub-card-desc">
+          Asisten AI cerdas untuk meracik ide viral, kurasi materi, penyusunan naskah hook tajam, dan strategi pemotongan klip video bertenaga Google Gemini resmi dari Satujalan.
+        </p>
+        <ul class="sj-hub-features">
+          <li><span>💡</span> Racik Ide Konten & Hook Menusuk</li>
+          <li><span>✂️</span> Struktur Pemotongan Klip Tajam & Viral</li>
+          <li><span>🤖</span> Sutradara Naskah AI Gemini Eksklusif</li>
+          <li><span>↗</span> Langsung Terbuka di Tab Baru</li>
+        </ul>
+        <a href="https://share.gemini.google/MoCJxV7tjDj4" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-clip">
+          <span>✨ Buka Clip Satujalan</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hub Footer Bar -->
+    <div class="sj-hub-footer">
+      <div class="sj-hub-user-pill">
+        <img id="sjHubUserAvatar" src="" alt="Avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23fff\'%3E%3Ccircle cx=\'12\' cy=\'8\' r=\'4\'/%3E%3Cpath d=\'M12 14c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z\'/%3E%3C/svg%3E'" />
+        <div>
+          <div id="sjHubUserEmail" class="sj-hub-email">user@gmail.com</div>
+          <div class="sj-hub-status">● Akses Member Terverifikasi</div>
+        </div>
+      </div>
+      <div class="sj-hub-footer-actions">
+        <button type="button" id="sjHubAdminBtn" class="sj-hub-admin-btn" style="display:none;" onclick="openAdminModal()">
+          👑 Panel Owner
+        </button>
+        <button type="button" class="sj-hub-logout-btn" onclick="sjLogout()">
+          🚪 Keluar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="landing"><div class="hero-brand"><div class="hero-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="amLogoB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF4D6D"/><stop offset="1" stop-color="#FF0033"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="17" fill="url(#amLogoB)"/><path d="M28 21.5 45.5 32 28 42.5Z" fill="#fff" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M11 24.5h9M8 32h12M11 39.5h9" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M50 8.5l1.7 4.6 4.6 1.7-4.6 1.7-1.7 4.6-1.7-4.6-4.6-1.7 4.6-1.7z" fill="#fff"/></svg></div><div><div class="hero-name">SJ Frame</div><span class="eyebrow">● Sutradara motion AI</span></div></div><h1>Bikin video motion profesional<br><em>cukup sekali klik.</em></h1><p class="lead">Upload video kamu ngomong, atau cukup isi info produk + foto/video produkmu. AI menyusun caption, b-roll, animasi penjelasan, latar bergerak, transisi, ganti angle kamera, musik &amp; efek suara, sampai ajakan (CTA). Hasilnya langsung jadi MP4 di browser, dan semua editan tersimpan otomatis.</p>
 
     <div id="draftsBox" class="drafts-box" hidden><h3>📂 Lanjutkan draf</h3><p class="hint">Semua editan tersimpan otomatis. Buka lagi kapan saja, edit, lalu render ulang.</p><div class="drafts" id="draftList"></div></div><div id="draftNeed" class="draft-need" role="status" aria-live="polite" hidden><div><b id="draftNeedT"></b><small>Semua editan tetap aman. Durasi draf <span id="draftNeedD"></span>. Pilih file video yang sama supaya teks &amp; efek tetap pas.</small></div><div class="row2"><button class="btn primary" type="button" id="draftNeedPick">📂 Pilih video</button><button class="btn" type="button" id="draftNeedCancel">Batal</button></div></div><div class="modes" role="tablist" aria-label="Jenis video"><button type="button" class="mode on" data-mode="video" role="tab">🎥 Punya video ngomong<small>Bicara ke kamera, podcast, ulasan, tutorial</small></button><button type="button" class="mode" data-mode="product" role="tab">🛍️ Tanpa video orang<small>Isi info produk + foto/video produk</small></button></div><div class="opts"><div class="field full" id="productForm" hidden><div class="pf grid2"><div class="field"><label class="l" for="pBrand">Nama brand *</label><input id="pBrand" placeholder="mis. AuraSkin"></div><div class="field"><label class="l" for="pTitle">Nama produk / judul utama *</label><input id="pTitle" placeholder="mis. Sunscreen ringan tanpa whitecast"></div><div class="field full"><label class="l" for="pTagline">Tagline</label><input id="pTagline" placeholder="mis. Nyaman dipakai seharian"></div><div class="field full"><label class="l" for="pDesc">Deskripsi singkat</label><textarea id="pDesc" rows="2" placeholder="Produk apa, untuk siapa, dan masalah apa yang diselesaikan"></textarea></div><div class="field full"><label class="l" for="pFeatures">Fitur / keunggulan (1 per baris)</label><textarea id="pFeatures" rows="3" placeholder="Ringan di kulit&#10;Tidak lengket&#10;Cocok untuk kulit berminyak"></textarea></div><div class="field"><label class="l" for="pPrice">Harga / promo (opsional)</label><input id="pPrice" placeholder="mis. Rp49.000, diskon 20%"></div><div class="field"><label class="l" for="pCta">Ajakan / CTA</label><input id="pCta" placeholder="mis. Klik link di bio"></div><div class="field"><label class="l" for="pDur">Durasi video</label><select id="pDur"><option value="auto" selected>Otomatis (AI menyesuaikan, biasanya 18–30 dtk)</option><option value="15">15 detik</option><option value="20">20 detik</option><option value="30">30 detik</option><option value="45">45 detik</option><option value="60">60 detik</option><option value="78">78 detik (maksimal)</option></select></div><div class="field"><label class="l" for="pVoice">Suara narator AI</label><select id="pVoice"><option value="Kore">Perempuan, tegas</option><option value="Leda">Perempuan, ceria</option><option value="Charon">Laki-laki, informatif</option><option value="Puck">Laki-laki, semangat</option><option value="none">Tanpa suara (teks saja)</option></select></div><div class="field full" hidden><label class="l">Warna tema (opsional)</label><div class="colors"><input type="color" id="pC1" value="#FF0033" aria-label="Warna utama"><input type="color" id="pC2" value="#FF4D6D" aria-label="Warna kedua"><label class="toggle"><input type="checkbox" id="pCustom"> Pakai warna ini (kalau tidak, ikut gaya)</label></div></div></div><p class="hint help">💡 Maksimal 78 detik supaya suara AI dan render tetap stabil, terutama di HP. Upload foto/video produk di bawah (latar polos paling bagus). Kalau tidak ada, AI membuatkan gambar.</p></div><div class="field"><label class="l" for="optAspect">Format output</label><select id="optAspect"><option value="asli">Sama seperti video asli</option><option value="9:16">9:16 · Vertikal (story / short)</option><option value="4:5">4:5 · Feed</option><option value="1:1">1:1 · Kotak</option><option value="16:9">16:9 · Horizontal</option></select></div><div class="field"><label class="l" for="optImages">Gambar buatan AI untuk b-roll</label><select id="optImages"><option value="0">Tidak usah</option><option value="2" selected>Maksimal 2 gambar</option><option value="4">Maksimal 4 gambar</option><option value="6">Maksimal 6 gambar</option></select></div><div class="field full"><label class="l" for="optColor">Warna</label><div class="colors"><select id="optColor"><option value="">Biar AI / gaya yang pilih</option><option value="auto">🎨 Ambil otomatis dari warna produk / video</option><option value="custom">Pilih sendiri</option></select><span id="customColors" hidden><input type="color" id="optC1" value="#FF0033" aria-label="Warna utama"><input type="color" id="optC2" value="#FF4D6D" aria-label="Warna kedua"></span><span class="chips" id="paletteChips"></span></div></div><div class="field"><label class="l" for="optMusic">Musik latar (original, otomatis)</label><select id="optMusic"><option value="auto">✨ Otomatis (AI pilih)</option><option value="lofi">Lo-fi santai</option><option value="corporate">Upbeat profesional</option><option value="hype">Hype / trap</option><option value="cinematic">Sinematik</option><option value="tech">Tech minimal</option><option value="happy">Ceria</option><option value="dramatic">Dramatis</option><option value="none">Tanpa musik</option></select></div><div class="field"><label class="l" for="optModel">Model AI</label><select id="optModel"></select></div><div class="field"><label class="l" for="optTone">Tema motion</label><select id="optTone"><option value="">Ikut gaya</option><option value="color">Berwarna</option><option value="bw">Motion hitam-putih (garis, latar, teks)</option><option value="silver">Motion silver chrome</option></select></div><div class="field" id="camField"><label class="l" for="optCam">Kamera otomatis</label><select id="optCam"><option value="">Biar AI yang atur</option><option value="angles">Ganti angle (multi-kamera)</option><option value="jumpcut">Jump-cut zoom</option><option value="halus">Zoom halus</option><option value="off">Diam</option></select></div><div class="field" id="bgAmtField"><label class="l" for="optBgAmt">Adegan latar/background</label><select id="optBgAmt"><option value="" selected>✨ Otomatis (AI pilih)</option><option value="clean">🎬 Clean: tanpa latar &amp; elemen (caption menyala)</option><option value="none">🎥 Tanpa latar: video asli + zoom</option><option value="few">Sedikit (1–2)</option><option value="mid">Sedang (3–4)</option><option value="many">Banyak (5+)</option></select><p class="hint help">💡 Jumlah ganti latar / kartu layar penuh per video (video lebih dari 1 menit dihitung naik, ±1 tiap 30 dtk untuk Sedikit). Sisanya diisi zoom kamera, teks kreatif (termasuk di belakang orang), dan elemen sesuai ucapan. Bisa diganti lagi di studio.</p></div><div class="field full"><label class="l">Gaya motion: klik untuk memilih. Semua detailnya (warna, font, animasi teks, latar, transisi, kamera) bisa diedit lagi di studio lalu disimpan jadi template.</label><select id="optPreset" hidden><option value="auto">Otomatis</option></select><div class="style-grid" id="styleGrid"></div><p class="hint help" id="styleDesc"></p><label class="toggle full-ai"><input type="checkbox" id="optFullAI"> <span><b>🧠 Mode AI penuh</b> (untuk gaya Otomatis): AI merancang sendiri scene animasi dari nol, transisi, efek suara, dan komposisi musik. <em>Proses AI ±20–60 dtk lebih lama, pemakaian akun lebih besar (±2 permintaan &amp; ±14 rb token tambahan), dan render bisa sedikit lebih lama.</em></span></label></div><div class="field full" id="briefField"><label class="l" for="optBrief">Konteks (opsional): produk, target penonton, CTA</label><textarea id="optBrief" rows="2" placeholder="Contoh: Jualan sepatu lokal untuk anak muda. CTA: komen 'MAU' biar dikirim link."></textarea><details class="tips"><summary>📝 Punya naskah VO? Tempel di sini (opsional, supaya caption lebih tepat)</summary><textarea id="optVO" rows="3" placeholder="Tempel naskah persis seperti yang kamu ucapkan di video"></textarea></details></div><div class="field full" id="nicheField"><label class="l" for="optNiche">Paket niche (aturan editing sesuai jenis konten)</label><select id="optNiche"><option value="">✨ Biar AI pilih sesuai isi video</option></select><p class="hint help" id="nicheDesc">AI akan memilih paket yang paling cocok dengan isi videomu.</p></div><div class="field full"><label class="l" id="assetLabel">Footage & gambar tambahan (opsional): video produk, screenshot, foto. AI yang mengatur penempatannya.</label><div class="land-assets"><button class="btn" id="landAssetBtn" type="button">＋ Tambah footage / gambar</button><span class="chips" id="landAssets"></span></div><div class="cut-opt" id="cutOpt" hidden><div class="pro-opt" id="proOpt"><label class="toggle"><input type="checkbox" id="optPro" checked> <span><b>Foto profesional (AI)</b></span></label><p class="hint">AI membuat versi profesional dari setiap foto produk: foto studio dengan cahaya, latar, dan warna rapi (foto flatlay & close-up tetap dengan komposisi yang sama). Produknya tetap sama persis — bentuk, warna, dan tulisan label dicek otomatis. Kalau berbeda, foto aslimu dirapikan tanpa AI.</p><p class="hint pnote" id="proNote" role="status" aria-live="polite" hidden></p><div class="field pvar"><label class="l" for="optProVar">Varian tambahan</label><select id="optProVar"><option value="auto">Otomatis</option><option value="0">Tidak usah</option><option value="1">1 foto suasana</option><option value="2">2 (suasana + detail)</option></select></div></div><label class="toggle"><input type="checkbox" id="optCut" checked> <span><b>Hapus latar otomatis</b></span></label><p class="hint">Produk dipotong dari fotonya supaya bisa melayang, berputar, dan ditaruh di latar desain. Foto aslimu tidak diubah.</p><p class="hint" id="cutProg" role="status" aria-live="polite" hidden></p></div><div class="ugc-opt" id="ugcOpt" hidden><label class="toggle"><input type="checkbox" id="optUgc" checked> <span><b>Model UGC (AI)</b></span></label><p class="hint">AI membuat 3–4 foto ala konten pengguna: karakter AI (bukan orang nyata) memegang atau memakai produkmu. Pemakaian AI lebih berat (±4 gambar).</p><p class="hint pnote" id="ugcNote" role="status" aria-live="polite" hidden></p><div class="ugcp" id="ugcPersona"></div><label class="toggle" id="ugcLabelRow"><input type="checkbox" id="optUgcLabel" checked> <span>Label "Gambar AI" di video</span></label><p class="hint pnote" id="ugcLabelWarn" hidden>Pastikan penonton tetap tahu gambar ini buatan AI.</p><p class="hint">Gambar buatan AI, bukan pengalaman pembeli nyata. Jangan dipakai sebagai testimoni.</p></div></div></div><div class="access" id="access"></div><div class="drop" id="drop" tabindex="0" role="button" aria-label="Pilih video"><div class="icon">↑</div><div class="big">Tarik & lepas video di sini</div><div class="mut">atau klik untuk memilih · MP4 / MOV / WEBM · ideal ≤ 3 menit</div><div class="mut" id="dropTip" style="margin-top:6px;font-size:12px">💡 Paling lancar di HP: video 1080p/720p, di bawah 100 MB. Video 4K atau ratusan MB sebaiknya dikompres dulu.</div></div><button type="button" class="btn primary big-cta" id="btnProduct" hidden>✨ Buatkan video produk</button><div class="features"><div class="feat"><b>Caption & animasi teks</b>Kata kunci besar berwarna, 9 gaya animasi teks, sinkron per kata.</div><div class="feat"><b>B-roll & ganti latar</b>Foto/video kamu, gambar AI, latar di belakang orang, mockup HP.</div><div class="feat"><b>Animasi & transisi</b>Langkah, grafik, perbandingan, spotlight produk, lalu balik ke video dengan transisi otomatis.</div><div class="feat"><b>Musik &amp; render MP4</b>Musik latar original + efek suara otomatis, render langsung di browser.</div></div><div id="guideHost"></div><p class="note">Video diproses di browser. Hanya audio, beberapa frame kecil, dan foto aset yang dikirim ke AI untuk dianalisis.</p></section><section id="studio" hidden><div class="stage-col"><div class="stage" id="stage"><canvas id="pv" width="540" height="960"></canvas><div class="fxbar" id="fxBar" role="toolbar" aria-label="Mode fokus"><button type="button" data-fx="focus" aria-label="Layar penuh (mode fokus untuk mengedit)" title="Layar penuh / mode fokus">⛶</button><button type="button" class="primary" data-fx="render" aria-label="Render video" title="Render video">⬇</button></div></div><div class="transport"><button class="play" id="btnPlay" title="Putar / jeda (Spasi)">▶</button><span class="time" id="time"><b>00:00.0</b> / 00:00.0</span><span class="sp"></span><button class="btn" id="btnStart" title="Ke awal">⟲ Awal</button></div><canvas id="tl"></canvas></div><aside class="panel"><nav class="tabs"><button class="tab on" data-tab="ai">✨ AI</button><button class="tab" data-tab="motion">Motion</button><button class="tab" data-tab="caption">Caption</button><button class="tab" data-tab="style">Gaya</button><button class="tab" data-tab="assets">Aset</button><button class="tab" data-tab="project">Proyek</button></nav><div class="tab-body" id="tab-ai"></div><div class="tab-body" id="tab-motion" hidden></div><div class="tab-body" id="tab-caption" hidden></div><div class="tab-body" id="tab-style" hidden></div><div class="tab-body" id="tab-assets" hidden></div><div class="tab-body" id="tab-project" hidden></div></aside></section><div class="modal" id="authHelp" hidden role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="dlg" style="max-width:540px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(255,0,51,0.15);color:#FF0033;font-size:18px">✨</span><div><h3 id="authTitle" style="margin:0;font-size:18px;font-weight:700;color:#FFF">Fitur AI & Otomasi Video Frame Studio</h3><span style="font-size:12px;color:#888">Panduan penggunaan & opsi kelanjutan video Anda</span></div></div><p class="ah-lead" style="font-size:13.5px;color:#D4D4D8;line-height:1.5;margin:0 0 16px">Video & bahan draf kamu <b>aman</b>. Fitur kecerdasan buatan (Gemini AI) belum terhubung dengan API Key. Kamu bisa memilih salah satu cara berikut untuk melanjutkan:</p><div class="ah-inapp" id="authInApp" hidden style="margin-bottom:14px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,0,51,0.3);background:rgba(255,0,51,0.08);font-size:13px;line-height:1.5;color:#FFA4B2">📱 Jika terbuka di browser WhatsApp/Instagram, buka di <b>Google Chrome</b>: ketuk menu <b>⋮</b> di pojok lalu pilih <b>"Buka di browser"</b>.</div><div style="display:grid;gap:10px;margin-bottom:18px"><div style="background:#181A22;border:1px solid #2D313E;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;line-height:1">⚡</span><div style="flex:1"><div style="font-weight:700;font-size:13.5px;color:#FFFFFF;margin-bottom:2px">1. Lanjut Tanpa AI (Susun Otomatis) <span style="font-size:10.5px;background:#22C55E;color:#000;font-weight:800;padding:1px 6px;border-radius:4px;margin-left:4px">DIREKOMENDASIKAN</span></div><div style="font-size:12px;color:#A1A1AA;line-height:1.4">Motion grafis, tipografi kinetik, efek suara & transisi tetap disusun otomatis 100% lokal di browser tanpa butuh kuota API.</div></div></div><div style="background:#181A22;border:1px solid #2D313E;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;line-height:1">🎬</span><div style="flex:1"><div style="font-weight:700;font-size:13.5px;color:#FFFFFF;margin-bottom:2px">2. Gunakan Sutradara AI (Gemini Chat Resmi)</div><div style="font-size:12px;color:#A1A1AA;line-height:1.4">Buat naskah & konsep iklan di link resmi Sutradara AI kami, lalu tempel naskahnya ke kolom transkrip studio.</div><a href="https://gemini.google.com/share/c5b85080d7a6?social_preview=false&skid=9b3c5111-1236-4bcb-871a-9b55c8052d78" target="_blank" style="display:inline-block;margin-top:6px;font-size:11.5px;font-weight:700;color:#FF4D6D;text-decoration:none">🔗 Buka Sutradara AI di Tab Baru →</a></div></div><div style="background:#181A22;border:1px solid #2D313E;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;line-height:1">🔑</span><div style="flex:1"><div style="font-weight:700;font-size:13.5px;color:#FFFFFF;margin-bottom:2px">3. Masukkan Gemini API Key (100% Gratis & Bebas Limit)</div><div style="font-size:12px;color:#A1A1AA;line-height:1.4">Jika ingin AI auto-transkrip ucapan video langsung di website, dapatkan API Key gratis dari Google AI Studio dan simpan di Pengaturan Studio.</div><div style="margin-top:6px"><a href="https://aistudio.google.com/app/apikey" target="_blank" style="font-size:11.5px;font-weight:600;color:#60A5FA;text-decoration:none">Dapatkan Key di Google AI Studio (Gratis) →</a></div></div></div></div><div class="dlg-actions" style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;border-top:1px solid #27272A;padding-top:14px;margin-top:0"><button class="btn" type="button" data-act="aClose">Tutup</button><button class="btn" type="button" data-act="aOpenDirector" style="color:#FF4D6D;border-color:rgba(255,0,51,0.3)">🎬 Buka Sutradara AI</button><button class="btn" type="button" data-act="aOpenKey">🔑 Masukkan API Key</button><button class="btn primary" type="button" data-act="aNoAI" style="background:linear-gradient(135deg,#FF2442,#CC0000);font-weight:700;color:#FFF;border:none">⚡ Lanjut Tanpa AI</button></div></div></div><div class="modal" id="busy" hidden><div class="dlg"><h3 id="busyTitle">Menyiapkan motion…</h3><div class="bprog" id="bProg" role="progressbar" aria-label="Kemajuan proses AI" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="bProgBar"></i></div><p class="bmeta"><span id="bPct">0%</span><span id="bEta"></span></p><ul class="steps" id="steps"></ul><div class="blive" id="bLive" aria-live="polite" hidden><h5>Hasil sementara</h5><div class="blive-in" id="bLiveIn"></div></div><p class="btip" id="bTip"></p><div class="ugcstrip" id="ugcStrip" hidden aria-live="polite" aria-label="Foto UGC yang sudah jadi"></div><div class="err" id="busyErr" hidden></div><div class="busy-fast" id="busyFast" hidden><span>AI masih menyusun… Rencana lengkap bisa butuh 1–3 menit. Klik Percepat untuk rencana ringkas.</span><button class="btn" type="button" id="btnFast">⚡ Percepat</button></div><div class="busy-fast" id="ugcFast" hidden><span>Foto UGC masih dibuat. Lanjut sekarang? Yang belum jadi menyusul.</span><button class="btn" type="button" id="btnUgcFast">⚡ Lanjut sekarang</button></div><div class="dlg-actions" id="busyActs" hidden><button class="btn" data-act="bClose">Tutup</button><button class="btn" data-act="bKey">Pengaturan</button><button class="btn" data-act="bManual">Susun otomatis tanpa AI</button><button class="btn primary" data-act="bRetry">Coba lagi dengan AI</button></div></div></div><div class="modal" id="bigModal" hidden role="dialog" aria-modal="true" aria-labelledby="bigTitle"><div class="dlg"><h3 id="bigTitle">⚠️ Video terlalu besar untuk HP</h3><p class="bigmain"><b>Video kamu terlalu besar untuk diproses lancar di HP — kompres dulu ke 720p/1080p (≤ ±100 MB) supaya tidak macet.</b></p><p class="hint" id="bigWhy"></p><p class="bigsub">Cara cepat mengompres di HP:</p><ol class="bigsteps"><li>Buka video di <b>Galeri / Foto</b> HP, lalu ketuk <b>Edit</b>.</li><li>Potong bagian yang tidak dipakai (paling lama ±5 menit).</li><li><b>Simpan sebagai salinan / Ekspor</b> dengan resolusi <b>720p atau 1080p</b> (pilih ukuran lebih kecil bila ada pilihan).</li><li>Kembali ke sini, ketuk <b>Pilih video lain</b>, lalu pilih video hasil simpanan tadi.</li></ol><p class="hint">Untuk rekaman berikutnya: atur kamera HP ke 1080p 30 fps (bukan 4K / 60 fps).</p><div class="dlg-actions"><button class="btn" type="button" data-act="bigGo">Tetap lanjutkan</button><button class="btn primary" type="button" data-act="bigPick">Pilih video lain</button></div></div></div><div class="modal" id="renderModal" hidden><div class="dlg"><h3>Render video</h3><div id="rOpts"><div class="grid2"><div class="field"><label class="l" for="rRes">Resolusi</label><select id="rRes"><option value="1080">1080p (HD penuh)</option><option value="720">720p (lebih cepat)</option></select></div><div class="field"><label class="l" for="rFps">Frame rate</label><select id="rFps"><option value="30">30 fps</option><option value="25">25 fps</option><option value="60">60 fps</option></select></div></div><label class="toggle"><input type="checkbox" id="rLite"> Mode ringan: lebih cepat, tanpa ganti latar orang, blur, dan grain (disarankan di HP)</label><div id="rAud"></div><p class="hint" id="rEst"></p><p class="hint">Render presisi frame-by-frame langsung di browser, lengkap dengan audio + efek suara. Biarkan halaman ini tetap terbuka selama proses.</p><details class="tips"><summary>💡 Tips render cepat di HP</summary><ul><li>Pilih 720p dan 30 fps. 1080p bisa 2× lebih lama.</li><li>Aktifkan Mode ringan (otomatis aktif di HP).</li><li>Jangan pindah aplikasi atau mengunci layar; render berhenti saat halaman ditinggal.</li><li>Colokkan charger dan tutup aplikasi lain supaya HP tidak melambat karena panas.</li><li>Video lebih dari 60 detik? Render di laptop lebih nyaman.</li></ul></details></div><div id="rProg" hidden><ol class="rph" id="rPh"><li data-ph="audio">Mencampur audio</li><li data-ph="frame">Merender frame</li><li data-ph="final">Menyelesaikan file</li></ol><div class="rpeekw"><canvas id="rPeek" width="72" height="128" aria-hidden="true"></canvas><div class="rprogw"><div class="bar" id="rBarBox" role="progressbar" aria-label="Kemajuan render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="rBar"></i></div><p class="hint" id="rTxt">Menyiapkan…</p></div></div><div id="rStall" class="rstall" hidden role="alert"><p>Render terjeda karena video berhenti diputar oleh sistem (mis. ada panggilan masuk atau kontrol musik). Ketuk tombol di bawah untuk melanjutkan dari posisi terakhir.</p><button class="btn primary" type="button" data-act="rResume">▶ Lanjutkan render</button></div></div><div id="rDone" hidden><div class="rok" id="rOk"><span class="rok-i" aria-hidden="true">✓</span><b>Video siap!</b></div><video id="rVid" controls playsinline></video><p class="hint" id="rInfo"></p><p class="rsave" id="rSaveHelp" hidden role="note"></p><div class="rnext"><p class="hint">Langkah berikutnya: unggah ke media sosialmu, atau simpan drafnya supaya bisa diedit lagi kapan saja.</p><div class="row2"><button class="btn" type="button" data-act="rSaveDraft">💾 Simpan draf</button><button class="btn" type="button" data-act="rDlDraft">⬇ Download draf</button></div></div></div><div class="err" id="rErr" hidden></div><div class="dlg-actions"><button class="btn" data-act="rClose">Tutup</button><button class="btn" data-act="rCancel" hidden>Batalkan</button><a class="btn primary" id="rDl" hidden download>⬇ Download</a><button class="btn primary" data-act="rStart">Mulai render</button></div></div></div><div class="modal" id="guideModal" hidden><div class="dlg dlg-wide"><div id="guideModalBody"></div><div class="dlg-actions"><button class="btn primary" id="guideClose" type="button">Mengerti</button></div></div></div><footer class="copy" id="copyNote"><b>© 2026 ContentScaleUp</b> · frame.satujalan. Hak cipta dilindungi undang-undang. Dilarang menyalin, mengubah, membongkar, atau menjual ulang sebagian maupun seluruh aplikasi ini tanpa izin tertulis dari ContentScaleUp.<br><span>Memakai pustaka open source (MPL-2.0, Apache-2.0) dan font berlisensi OFL sesuai ketentuannya. Video, foto, dan hasil render milik masing-masing pengguna.</span></footer><div id="toast"></div><video id="vid" playsinline preload="auto" hidden></video><input type="file" id="fileIn" accept="video/*,.mov,.mp4,.m4v,.webm,.mkv" hidden><input type="file" id="jsonIn" accept=".frame.satujalan,.frame,.automotion,.json,application/json,application/octet-stream" hidden><input type="file" id="assetIn" accept="image/*,video/*,.mov,.mp4,.webm" multiple hidden><input type="file" id="shotIn" accept="image/*" multiple hidden><script type="module">/*! frame.satujalan — © 2026 ContentScaleUp · frame.satujalan. Hak cipta dilindungi undang-undang. Dilarang menyalin, mengubah, membongkar, atau menjual ulang sebagian maupun seluruh aplikasi ini tanpa izin tertulis dari ContentScaleUp.
    Komponen pihak ketiga dimuat dari CDN sesuai lisensinya masing-masing: pustaka encoder video (MPL-2.0), pustaka pemisah orang (Apache-2.0), dan font (SIL Open Font License). Hak atas komponen tersebut tetap milik pemegangnya. */
@@ -1319,7 +1760,7 @@ function handleRequest(e){
 
   const ADMIN_EMAIL = 'yulison47@gmail.com';
   const WA_NUMBER = '6282138004443';
-  const GEMINI_SHARE_URL = 'https://gemini.google.com/share/c5b85080d7a6?social_preview=false&skid=9b3c5111-1236-4bcb-871a-9b55c8052d78';
+  const GEMINI_SHARE_URL = 'https://share.gemini.google/MoCJxV7tjDj4';
   const DEFAULT_SHEET_ID = '1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok';
 
   // Strictly in-memory session (resets on reload or close)
@@ -1538,10 +1979,13 @@ function handleRequest(e){
       if (cancelBtn && !cancelBtn.hidden) cancelBtn.click();
     } catch {}
 
-    ['sjUserPill', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
+    ['sjUserPill', 'sjHubNavBtn', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.remove();
     });
+
+    const hub = document.getElementById('sjHubScreen');
+    if (hub) hub.style.display = 'none';
 
     const gate = document.getElementById('saasGate');
     if (gate) gate.style.display = 'flex';
@@ -1940,6 +2384,48 @@ function handleRequest(e){
     }
   }
 
+  window.openHubMenu = function() {
+    const hub = document.getElementById('sjHubScreen');
+    const landing = document.getElementById('landing');
+    const studio = document.getElementById('studio');
+
+    if (hub) hub.style.display = 'flex';
+    if (landing) landing.hidden = true;
+    if (studio) studio.hidden = true;
+
+    const u = window._sjUser;
+    if (u) {
+      const nameEl = document.getElementById('sjHubUserName');
+      if (nameEl) nameEl.textContent = (u.name || 'Creator').split(' ')[0];
+      const emailEl = document.getElementById('sjHubUserEmail');
+      if (emailEl) emailEl.textContent = u.email || '';
+      const avatarEl = document.getElementById('sjHubUserAvatar');
+      if (avatarEl && u.picture) avatarEl.src = u.picture;
+      const adminBtn = document.getElementById('sjHubAdminBtn');
+      if (adminBtn) adminBtn.style.display = u.isOwner ? 'inline-flex' : 'none';
+    }
+  };
+
+  window.openVideoStudio = function() {
+    const hub = document.getElementById('sjHubScreen');
+    const landing = document.getElementById('landing');
+    const studio = document.getElementById('studio');
+
+    if (hub) hub.style.display = 'none';
+
+    if (window.zt && window.zt.ready) {
+      if (landing) landing.hidden = true;
+      if (studio) studio.hidden = false;
+    } else {
+      if (landing) landing.hidden = false;
+      if (studio) studio.hidden = true;
+    }
+
+    try {
+      if (typeof window.ZS === 'function') window.ZS();
+    } catch (e) {}
+  };
+
   function unlockStudio() {
     stopDeniedPolling();
     document.body.classList.remove('sj-locked');
@@ -1947,11 +2433,8 @@ function handleRequest(e){
     const gate = document.getElementById('saasGate');
     if (gate) gate.style.display = 'none';
 
-    // Ensure landing is displayed and studio hidden when entering fresh
-    const landing = document.getElementById('landing');
-    const studio = document.getElementById('studio');
-    if (landing && !window.zt?.ready) landing.hidden = false;
-    if (studio && !window.zt?.ready) studio.hidden = true;
+    // Present the 2-Menu Portal on fresh login / verified ACC
+    window.openHubMenu();
 
     updateHeaderUI();
 
@@ -1986,6 +2469,22 @@ function handleRequest(e){
       <span class="sj-role-tag ${u.isOwner ? 'sj-role-admin' : 'sj-role-member'}">${u.isOwner ? '👑 Owner' : 'Aktif'}</span>
     `;
 
+    // 1. Menu Utama Nav Button (Toggles the 2-Menu Portal)
+    let hubNavBtn = document.getElementById('sjHubNavBtn');
+    if (!hubNavBtn) {
+      hubNavBtn = document.createElement('button');
+      hubNavBtn.id = 'sjHubNavBtn';
+      hubNavBtn.className = 'btn';
+      hubNavBtn.type = 'button';
+      hubNavBtn.style.background = 'rgba(255, 255, 255, 0.06)';
+      hubNavBtn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+      hubNavBtn.innerHTML = '<span class="sj-full-txt">🏠 Menu Utama</span><span class="sj-mob-txt">🏠 Menu</span>';
+      hubNavBtn.title = 'Kembali ke Pilihan Menu (Edit Video / Clip Satujalan)';
+      hubNavBtn.onclick = window.openHubMenu;
+      headerActions.insertBefore(hubNavBtn, userPill.nextSibling);
+    }
+
+    // 2. Direct Clip Satujalan Button
     let geminiBtn = document.getElementById('sjGeminiLinkBtn');
     if (!geminiBtn) {
       geminiBtn = document.createElement('a');
@@ -1993,10 +2492,13 @@ function handleRequest(e){
       geminiBtn.className = 'sj-gemini-btn';
       geminiBtn.href = GEMINI_SHARE_URL;
       geminiBtn.target = '_blank';
-      geminiBtn.rel = 'noopener';
-      geminiBtn.innerHTML = '<span class="sj-full-txt">✨ Sutradara AI</span><span class="sj-mob-txt">✨ AI</span>';
-      geminiBtn.title = 'Buka AI Gemini di akun Anda';
-      headerActions.insertBefore(geminiBtn, userPill.nextSibling);
+      geminiBtn.rel = 'noopener noreferrer';
+      geminiBtn.innerHTML = '<span class="sj-full-txt">⚡ Clip Satujalan</span><span class="sj-mob-txt">⚡ Clip</span>';
+      geminiBtn.title = 'Buka Clip Satujalan (Google Gemini AI)';
+      headerActions.insertBefore(geminiBtn, hubNavBtn.nextSibling);
+    } else {
+      geminiBtn.href = GEMINI_SHARE_URL;
+      geminiBtn.innerHTML = '<span class="sj-full-txt">⚡ Clip Satujalan</span><span class="sj-mob-txt">⚡ Clip</span>';
     }
 
     if (u.isOwner) {
@@ -2040,10 +2542,13 @@ function handleRequest(e){
     const revSec = document.getElementById('sgRevokedSection');
     if (revSec) revSec.style.display = 'none';
 
-    ['sjUserPill', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
+    ['sjUserPill', 'sjHubNavBtn', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.remove();
     });
+
+    const hub = document.getElementById('sjHubScreen');
+    if (hub) hub.style.display = 'none';
 
     // Reset studio state & isolate data per account
     try {

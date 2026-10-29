@@ -1188,7 +1188,7 @@ const t=["gemini-flash-lite-latest","gemini-flash-latest","gemini-3-flash-previe
         </div>
       </div>
       <div style="display:flex;gap:8px">
-        <a id="adminSheetDirectLink" href="https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit" target="_blank" class="am-btn-sheet">
+        <a id="adminSheetDirectLink" href="https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0" target="_blank" class="am-btn-sheet adminSheetDirectLink" onclick="window.open('https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0', '_blank'); return false;">
           <span>↗️ Buka Google Sheet</span>
         </a>
         <button type="button" class="btn" onclick="refreshAdminMembers()" style="font-size:12px;padding:6px 12px" title="Muat ulang data live dari Sheet">🔄 Sync</button>
@@ -1210,11 +1210,11 @@ const t=["gemini-flash-lite-latest","gemini-flash-latest","gemini-3-flash-previe
 
       <!-- Quick Action: Buka Google Sheet Langsung untuk Memastikan / Cek & Refresh -->
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-top:10px;border-top:1px solid #262B3A">
-        <a id="adminSheetAccLink" href="https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit" target="_blank" class="adminSheetDirectLink" style="display:inline-flex;align-items:center;gap:7px;background:#107C41;color:#fff;text-decoration:none;font-weight:700;font-size:12.5px;padding:9px 15px;border-radius:8px;box-shadow:0 2px 8px rgba(16,124,65,0.3)">
+        <a id="adminSheetAccLink" href="https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0" target="_blank" class="adminSheetDirectLink" onclick="window.open('https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0', '_blank'); return false;" style="display:inline-flex;align-items:center;gap:7px;background:#107C41;color:#fff;text-decoration:none;font-weight:700;font-size:12.5px;padding:9px 15px;border-radius:8px;box-shadow:0 2px 8px rgba(16,124,65,0.3);cursor:pointer">
           <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm0-4H6v-2h6v2zm0-4H6V7h6v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2z"/></svg>
           <span>📊 Buka Google Sheet (Cek Memastikan / Edit)</span>
         </a>
-        <button type="button" class="btn" onclick="refreshAdminMembers()" style="font-size:12px;padding:9px 14px;border:1px solid #33394D;background:#161922;color:#E2E8F0;font-weight:600" title="Muat ulang data live dari Sheet">🔄 Sync / Refresh Tabel</button>
+        <button type="button" class="btn" onclick="refreshAdminMembers()" style="font-size:12px;padding:9px 14px;border:1px solid #33394D;background:#161922;color:#E2E8F0;font-weight:600;cursor:pointer" title="Muat ulang data live dari Sheet">🔄 Sync / Refresh Tabel</button>
       </div>
 
       <div id="accStatusHint" style="font-size:11.5px;color:#94A3B8;margin-top:10px;line-height:1.5">
@@ -1362,7 +1362,13 @@ function handleRequest(e){
 
   function getSheetId() {
     try {
-      return localStorage.getItem('sj_sheet_id') || DEFAULT_SHEET_ID;
+      const stored = localStorage.getItem('sj_sheet_id');
+      // If stored is invalid, starts with AKfy (webhook), contains script.google.com, or is too short, reset to DEFAULT_SHEET_ID
+      if (stored && (stored.startsWith('AKfy') || stored.includes('script.google.com') || stored.length < 25)) {
+        localStorage.removeItem('sj_sheet_id');
+        return DEFAULT_SHEET_ID;
+      }
+      return stored || DEFAULT_SHEET_ID;
     } catch {
       return DEFAULT_SHEET_ID;
     }
@@ -2081,9 +2087,13 @@ function handleRequest(e){
     if (modal) modal.style.display = 'flex';
     window.refreshAdminMembers();
     const sheetId = getSheetId();
-    const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/edit';
-    document.querySelectorAll('.adminSheetDirectLink, #adminSheetDirectLink').forEach(el => {
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/edit?gid=0#gid=0';
+    document.querySelectorAll('.adminSheetDirectLink, #adminSheetDirectLink, #adminSheetAccLink').forEach(el => {
       el.href = sheetUrl;
+      el.onclick = function(e) {
+        e.preventDefault();
+        window.open(sheetUrl, '_blank');
+      };
     });
     if (document.getElementById('adminSheetInput')) {
       document.getElementById('adminSheetInput').value = sheetUrl;
@@ -2121,17 +2131,31 @@ function handleRequest(e){
 
   window.saveAdminSheet = function() {
     const input = document.getElementById('adminSheetInput').value.trim();
-    if (!input) {
+    if (!input || input.includes('script.google.com') || input.startsWith('AKfy')) {
       localStorage.removeItem('sj_sheet_id');
-      document.getElementById('sheetStatusText').textContent = 'Google Sheet dilepas. Menggunakan default.';
+      document.getElementById('sheetStatusText').textContent = 'Menggunakan Google Sheet resmi.';
+      const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + DEFAULT_SHEET_ID + '/edit?gid=0#gid=0';
+      document.querySelectorAll('.adminSheetDirectLink, #adminSheetDirectLink, #adminSheetAccLink').forEach(el => {
+        el.href = sheetUrl;
+        el.onclick = function(e) {
+          e.preventDefault();
+          window.open(sheetUrl, '_blank');
+        };
+      });
+      alert('Tersambung ke Google Sheet resmi!');
+      window.refreshAdminMembers();
       return;
     }
     const match = input.match(/\/d\/([a-zA-Z0-9-_]+)/);
     const id = match ? match[1] : input;
     localStorage.setItem('sj_sheet_id', id);
-    const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + id + '/edit';
-    document.querySelectorAll('.adminSheetDirectLink, #adminSheetDirectLink').forEach(el => {
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + id + '/edit?gid=0#gid=0';
+    document.querySelectorAll('.adminSheetDirectLink, #adminSheetDirectLink, #adminSheetAccLink').forEach(el => {
       el.href = sheetUrl;
+      el.onclick = function(e) {
+        e.preventDefault();
+        window.open(sheetUrl, '_blank');
+      };
     });
     document.getElementById('sheetStatusText').textContent = '✓ Google Sheet tersimpan! Sistem akan memeriksa tabel ini secara otomatis.';
     alert('Google Sheets berhasil dihubungkan!');

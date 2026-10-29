@@ -424,7 +424,7 @@ html, body {
 
 .sj-hub-container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1140px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -471,7 +471,7 @@ html, body {
   font-size: 15px;
   color: #9E9EA7;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 680px;
   line-height: 1.6;
 }
 
@@ -482,11 +482,11 @@ html, body {
 
 .sj-hub-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sj-hub-section {
     padding: 24px 14px;
   }
@@ -518,6 +518,78 @@ html, body {
 
 .sj-hub-card-studio {
   border-color: rgba(255, 0, 51, 0.25);
+}
+
+.sj-hub-card-sutradara {
+  border-color: rgba(225, 29, 72, 0.25);
+}
+
+.sj-hub-card-sutradara:hover {
+  border-color: #E11D48;
+  box-shadow: 0 20px 50px rgba(225, 29, 72, 0.2), 0 0 0 1px rgba(225, 29, 72, 0.4);
+}
+
+.sj-icon-sutradara {
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.2), rgba(244, 63, 94, 0.08));
+  border: 1px solid rgba(225, 29, 72, 0.35);
+  color: #FB7185;
+}
+
+.sj-dot-rose {
+  background: #E11D48;
+  box-shadow: 0 0 8px #E11D48;
+}
+
+.sj-hub-btn-sutradara {
+  background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.4);
+}
+
+.sj-hub-btn-sutradara:hover {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  box-shadow: 0 6px 24px rgba(225, 29, 72, 0.55);
+  transform: translateY(-1px);
+}
+
+.sj-sutradara-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #E11D48, #BE123C);
+  border: none;
+  color: #fff;
+  padding: 7px 13px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(225, 29, 72, 0.35);
+  transition: filter 0.15s, transform 0.15s;
+}
+.sj-sutradara-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.sj-clip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  border: none;
+  color: #fff;
+  padding: 7px 13px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+  transition: filter 0.15s, transform 0.15s;
+}
+.sj-clip-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
 }
 
 .sj-hub-card-studio:hover {
@@ -1015,7 +1087,9 @@ html, body {
     display: inline !important;
   }
 
-  .sj-gemini-btn {
+  .sj-gemini-btn,
+  .sj-sutradara-btn,
+  .sj-clip-btn {
     padding: 5px 9px !important;
     font-size: 11.5px !important;
     border-radius: 8px !important;
@@ -1425,7 +1499,7 @@ html, body {
         </div>
         <h2 class="sj-hub-card-title">Edit Video Frame Satujalan</h2>
         <p class="sj-hub-card-desc">
-          Studio pembuat video motion profesional otomatis. Dilengkapi kinetic typography bercahaya, b-roll, transisi mulus, dynamic camera punch-in, audio SFX, hingga render MP4 langsung di browser.
+          Studio pembuat video motion profesional otomatis. Dilengkapi kinetic typography bercahaya, b-roll AI, auto punch-in zoom, transisi sinematik, audio SFX, hingga render MP4 di browser.
         </p>
         <ul class="sj-hub-features">
           <li><span>⚡</span> Kinetic Subtitle & Typography Pendar</li>
@@ -1434,12 +1508,39 @@ html, body {
           <li><span>💾</span> Render Cepat MP4 di Browser & Auto-Save</li>
         </ul>
         <button type="button" class="sj-hub-btn sj-hub-btn-primary" onclick="openVideoStudio()">
-          <span>🚀 Masuk ke Edit Video Frame</span>
+          <span>🚀 Masuk ke Studio Edit</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
       </div>
 
-      <!-- MENU 2: CLIP SATUJALAN -->
+      <!-- MENU 2: SUTRADARA AI -->
+      <div class="sj-hub-card sj-hub-card-sutradara">
+        <div class="sj-hub-card-badge">
+          <span class="sj-hub-icon-dot sj-dot-rose"></span>
+          AI DIRECTOR & STORYLINE
+        </div>
+        <div class="sj-hub-card-icon-wrap sj-icon-sutradara">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <h2 class="sj-hub-card-title">Sutradara AI Satujalan</h2>
+        <p class="sj-hub-card-desc">
+          Asisten sutradara AI eksklusif untuk merancang konsep alur cerita, arahan visual, copywriting naskah, dan formula hook pembuka video sebelum diproduksi di studio.
+        </p>
+        <ul class="sj-hub-features">
+          <li><span>🎭</span> Konsep & Alur Cerita Video Menarik</li>
+          <li><span>🎬</span> Panduan Arahan Visual & Tone Warna</li>
+          <li><span>📝</span> Formula Hook Naskah Pembuka Kuat</li>
+          <li><span>↗</span> Langsung Terbuka di Google Gemini</li>
+        </ul>
+        <a href="https://gemini.google.com/share/c5b85080d7a6?social_preview=false&skid=9b3c5111-1236-4bcb-871a-9b55c8052d78" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-sutradara">
+          <span>✨ Buka Sutradara AI</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+
+      <!-- MENU 3: CLIP SATUJALAN -->
       <div class="sj-hub-card sj-hub-card-clip">
         <div class="sj-hub-card-badge">
           <span class="sj-hub-icon-dot sj-dot-purple"></span>
@@ -1452,16 +1553,16 @@ html, body {
         </div>
         <h2 class="sj-hub-card-title">Clip Satujalan</h2>
         <p class="sj-hub-card-desc">
-          Asisten AI cerdas untuk meracik ide viral, kurasi materi, penyusunan naskah hook tajam, dan strategi pemotongan klip video bertenaga Google Gemini resmi dari Satujalan.
+          Asisten AI cerdas untuk meracik ide konten viral, kurasi materi, penyusunan naskah hook tajam, dan strategi pemotongan klip video bertenaga Google Gemini resmi.
         </p>
         <ul class="sj-hub-features">
           <li><span>💡</span> Racik Ide Konten & Hook Menusuk</li>
           <li><span>✂️</span> Struktur Pemotongan Klip Tajam & Viral</li>
-          <li><span>🤖</span> Sutradara Naskah AI Gemini Eksklusif</li>
-          <li><span>↗</span> Langsung Terbuka di Tab Baru</li>
+          <li><span>🤖</span> Generator Naskah AI Gemini Eksklusif</li>
+          <li><span>↗</span> Langsung Terbuka di Google Gemini</li>
         </ul>
         <a href="https://share.gemini.google/MoCJxV7tjDj4" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-clip">
-          <span>✨ Buka Clip Satujalan</span>
+          <span>⚡ Buka Clip Satujalan</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
         </a>
       </div>
@@ -1760,7 +1861,9 @@ function handleRequest(e){
 
   const ADMIN_EMAIL = 'yulison47@gmail.com';
   const WA_NUMBER = '6282138004443';
-  const GEMINI_SHARE_URL = 'https://share.gemini.google/MoCJxV7tjDj4';
+  const SUTRADARA_AI_URL = 'https://gemini.google.com/share/c5b85080d7a6?social_preview=false&skid=9b3c5111-1236-4bcb-871a-9b55c8052d78';
+  const CLIP_SATUJALAN_URL = 'https://share.gemini.google/MoCJxV7tjDj4';
+  const GEMINI_SHARE_URL = CLIP_SATUJALAN_URL;
   const DEFAULT_SHEET_ID = '1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok';
 
   // Strictly in-memory session (resets on reload or close)
@@ -1979,7 +2082,7 @@ function handleRequest(e){
       if (cancelBtn && !cancelBtn.hidden) cancelBtn.click();
     } catch {}
 
-    ['sjUserPill', 'sjHubNavBtn', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
+    ['sjUserPill', 'sjHubNavBtn', 'sjSutradaraLinkBtn', 'sjClipLinkBtn', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.remove();
     });
@@ -2469,7 +2572,7 @@ function handleRequest(e){
       <span class="sj-role-tag ${u.isOwner ? 'sj-role-admin' : 'sj-role-member'}">${u.isOwner ? '👑 Owner' : 'Aktif'}</span>
     `;
 
-    // 1. Menu Utama Nav Button (Toggles the 2-Menu Portal)
+    // 1. Menu Utama Nav Button (Kembali ke Pilihan Menu)
     let hubNavBtn = document.getElementById('sjHubNavBtn');
     if (!hubNavBtn) {
       hubNavBtn = document.createElement('button');
@@ -2478,27 +2581,42 @@ function handleRequest(e){
       hubNavBtn.type = 'button';
       hubNavBtn.style.background = 'rgba(255, 255, 255, 0.06)';
       hubNavBtn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
-      hubNavBtn.innerHTML = '<span class="sj-full-txt">🏠 Menu Utama</span><span class="sj-mob-txt">🏠 Menu</span>';
-      hubNavBtn.title = 'Kembali ke Pilihan Menu (Edit Video / Clip Satujalan)';
+      hubNavBtn.innerHTML = '<span class="sj-full-txt">🏠 Menu Utama</span><span class="sj-mob-txt">🏠</span>';
+      hubNavBtn.title = 'Kembali ke Pilihan Menu Satujalan';
       hubNavBtn.onclick = window.openHubMenu;
       headerActions.insertBefore(hubNavBtn, userPill.nextSibling);
     }
 
-    // 2. Direct Clip Satujalan Button
-    let geminiBtn = document.getElementById('sjGeminiLinkBtn');
-    if (!geminiBtn) {
-      geminiBtn = document.createElement('a');
-      geminiBtn.id = 'sjGeminiLinkBtn';
-      geminiBtn.className = 'sj-gemini-btn';
-      geminiBtn.href = GEMINI_SHARE_URL;
-      geminiBtn.target = '_blank';
-      geminiBtn.rel = 'noopener noreferrer';
-      geminiBtn.innerHTML = '<span class="sj-full-txt">⚡ Clip Satujalan</span><span class="sj-mob-txt">⚡ Clip</span>';
-      geminiBtn.title = 'Buka Clip Satujalan (Google Gemini AI)';
-      headerActions.insertBefore(geminiBtn, hubNavBtn.nextSibling);
+    // 2. Tombol Sutradara AI (Konsep & Storyline)
+    let sutradaraBtn = document.getElementById('sjSutradaraLinkBtn');
+    if (!sutradaraBtn) {
+      sutradaraBtn = document.createElement('a');
+      sutradaraBtn.id = 'sjSutradaraLinkBtn';
+      sutradaraBtn.className = 'sj-sutradara-btn';
+      sutradaraBtn.href = SUTRADARA_AI_URL;
+      sutradaraBtn.target = '_blank';
+      sutradaraBtn.rel = 'noopener noreferrer';
+      sutradaraBtn.innerHTML = '<span class="sj-full-txt">✨ Sutradara AI</span><span class="sj-mob-txt">✨ AI</span>';
+      sutradaraBtn.title = 'Buka Sutradara AI (Konsep & Storyline Video)';
+      headerActions.insertBefore(sutradaraBtn, hubNavBtn.nextSibling);
     } else {
-      geminiBtn.href = GEMINI_SHARE_URL;
-      geminiBtn.innerHTML = '<span class="sj-full-txt">⚡ Clip Satujalan</span><span class="sj-mob-txt">⚡ Clip</span>';
+      sutradaraBtn.href = SUTRADARA_AI_URL;
+    }
+
+    // 3. Tombol Clip Satujalan (Ide & Clipping Konten)
+    let clipBtn = document.getElementById('sjClipLinkBtn');
+    if (!clipBtn) {
+      clipBtn = document.createElement('a');
+      clipBtn.id = 'sjClipLinkBtn';
+      clipBtn.className = 'sj-clip-btn';
+      clipBtn.href = CLIP_SATUJALAN_URL;
+      clipBtn.target = '_blank';
+      clipBtn.rel = 'noopener noreferrer';
+      clipBtn.innerHTML = '<span class="sj-full-txt">⚡ Clip Satujalan</span><span class="sj-mob-txt">⚡ Clip</span>';
+      clipBtn.title = 'Buka Clip Satujalan (Ide & Clipping Konten)';
+      headerActions.insertBefore(clipBtn, sutradaraBtn.nextSibling);
+    } else {
+      clipBtn.href = CLIP_SATUJALAN_URL;
     }
 
     if (u.isOwner) {
@@ -2510,9 +2628,9 @@ function handleRequest(e){
         adminBtn.type = 'button';
         adminBtn.style.borderColor = '#FF0033';
         adminBtn.style.color = '#FF4D6D';
-        adminBtn.innerHTML = '<span class="sj-full-txt">⚙️ Kelola Member</span><span class="sj-mob-txt">⚙️ Member</span>';
+        adminBtn.innerHTML = '<span class="sj-full-txt">⚙️ Kelola Member</span><span class="sj-mob-txt">⚙️</span>';
         adminBtn.onclick = window.openAdminModal;
-        headerActions.insertBefore(adminBtn, geminiBtn.nextSibling);
+        headerActions.insertBefore(adminBtn, clipBtn.nextSibling);
       }
     }
 
@@ -2542,7 +2660,7 @@ function handleRequest(e){
     const revSec = document.getElementById('sgRevokedSection');
     if (revSec) revSec.style.display = 'none';
 
-    ['sjUserPill', 'sjHubNavBtn', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
+    ['sjUserPill', 'sjHubNavBtn', 'sjSutradaraLinkBtn', 'sjClipLinkBtn', 'sjGeminiLinkBtn', 'sjAdminBtn', 'sjLogoutBtn'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.remove();
     });

@@ -1560,20 +1560,20 @@ html, body {
         </button>
       </div>
 
-      <!-- MENU 2: SUTRADARA AI (BIRU ELEKTRIK) -->
+      <!-- MENU 2: CLIPER AI (BIRU ELEKTRIK) -->
       <div class="sj-hub-card sj-hub-card-sutradara">
         <div class="sj-hub-card-badge">
           <span class="sj-hub-icon-dot sj-dot-blue"></span>
-          AI SUTRADARA & KONTEN
+          AI CLIPER & KONTEN
         </div>
         <div class="sj-hub-card-icon-wrap sj-icon-sutradara">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
         </div>
-        <h2 class="sj-hub-card-title">Sutradara AI Satujalan</h2>
+        <h2 class="sj-hub-card-title">Cliper AI Satujalan</h2>
         <p class="sj-hub-card-desc">
-          Asisten sutradara AI cerdas untuk meracik konsep cerita, copywriting naskah hook tajam, arahan visual, dan strategi konten bertenaga AI Satujalan Suite.
+          Asisten cliper AI cerdas untuk meracik konsep cerita, copywriting naskah hook tajam, arahan visual, dan strategi konten klip bertenaga AI Satujalan Suite.
         </p>
         <ul class="sj-hub-features">
           <li><span>🎭</span> Konsep Alur Cerita & Copywriting Naskah</li>
@@ -1581,8 +1581,8 @@ html, body {
           <li><span>🎬</span> Panduan Arahan Visual & Klip Tajam</li>
           <li><span>🚀</span> Langsung Siap Pakai di Tab Baru Browser</li>
         </ul>
-        <a href="https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-sutradara">
-          <span>✨ Buka Sutradara AI</span>
+        <a href="https://share.gemini.google/MoCJxV7tjDj4" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-sutradara">
+          <span>⚡ Buka Cliper AI</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
         </a>
       </div>
@@ -1912,8 +1912,8 @@ function handleRequest(e){
   const ADMIN_EMAIL = 'yulison47@gmail.com';
   const WA_NUMBER = '6282138004443';
   const SUTRADARA_AI_URL = 'https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859';
-  const CLIPER_AI_URL = SUTRADARA_AI_URL;
-  const CLIP_SATUJALAN_URL = SUTRADARA_AI_URL;
+  const CLIPER_AI_URL = 'https://share.gemini.google/MoCJxV7tjDj4';
+  const CLIP_SATUJALAN_URL = CLIPER_AI_URL;
   const GEMINI_SHARE_URL = SUTRADARA_AI_URL;
   const VOICE_SATUJALAN_URL = 'https://gemini.google.com/share/ec689ac3cd26';
   const DEFAULT_SHEET_ID = '1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok';
@@ -2639,7 +2639,7 @@ function handleRequest(e){
       headerActions.insertBefore(hubNavBtn, userPill.nextSibling);
     }
 
-    // 2. Tombol Sutradara AI (Biru Elektrik)
+    // 2. Tombol Sutradara AI (Biru Elektrik) - Gambar 1
     let sutradaraBtn = document.getElementById('sjSutradaraLinkBtn') || document.getElementById('sjCliperLinkBtn') || document.getElementById('sjClipLinkBtn');
     if (!sutradaraBtn) {
       sutradaraBtn = document.createElement('a');
@@ -2650,13 +2650,25 @@ function handleRequest(e){
       sutradaraBtn.rel = 'noopener noreferrer';
       sutradaraBtn.innerHTML = '<span class="sj-full-txt">✨ Sutradara AI</span><span class="sj-mob-txt">✨ AI</span>';
       sutradaraBtn.title = 'Buka Sutradara AI Satujalan';
+      sutradaraBtn.onclick = function(e) {
+        e.preventDefault();
+        window.open(SUTRADARA_AI_URL, '_blank', 'noopener,noreferrer');
+        return false;
+      };
       headerActions.insertBefore(sutradaraBtn, hubNavBtn.nextSibling);
     } else {
       sutradaraBtn.id = 'sjSutradaraLinkBtn';
       sutradaraBtn.className = 'sj-sutradara-btn';
       sutradaraBtn.href = SUTRADARA_AI_URL;
+      sutradaraBtn.target = '_blank';
+      sutradaraBtn.rel = 'noopener noreferrer';
       sutradaraBtn.innerHTML = '<span class="sj-full-txt">✨ Sutradara AI</span><span class="sj-mob-txt">✨ AI</span>';
       sutradaraBtn.title = 'Buka Sutradara AI Satujalan';
+      sutradaraBtn.onclick = function(e) {
+        e.preventDefault();
+        window.open(SUTRADARA_AI_URL, '_blank', 'noopener,noreferrer');
+        return false;
+      };
     }
 
     // Pastikan tombol Voice Satujalan TIDAK muncul di bar navigasi atas (sesuai Gambar 2)

@@ -18,7 +18,7 @@ Dokumen ini merupakan panduan teknis dan operasional komprehensif untuk **Frame 
 | **Database Google Sheet** | [Buka Google Sheets Member](https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0) | ID: `1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok` *(Paten & Terkunci)* |
 | **Webhook Auto-Save** | `https://script.google.com/macros/s/AKfycby1vuG-mLuyNBS270jK-uMP4bY09gqJXA8D-fOg9PPcEIBa31934T5IS6OAoNeuyb1H/exec` | **Aktif 100% (Versi 3 - Siapa Saja / Anyone)** |
 | **Menu 1 (Studio)** | **Edit Video Frame Satujalan** 🔴 *Merah Studio (`#FF0033`)* | Generator video kinetic motion & typography browser |
-| **Menu 2 (Sutradara AI)**| [Sutradara AI Satujalan](https://share.gemini.google/MoCJxV7tjDj4) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi: `https://share.gemini.google/MoCJxV7tjDj4` *(White-Label)* |
+| **Menu 2 (Sutradara AI)**| [Sutradara AI Satujalan](https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi: `https://gemini.google.com/share/b23db3752db1...` *(White-Label)* |
 | **Menu 3 (Voice Dubbing)**| [Voice Satujalan](https://gemini.google.com/share/ec689ac3cd26) 🟣 *Ungu Violet (`#8B5CF6`)* | Link resmi: `https://gemini.google.com/share/ec689ac3cd26` *(White-Label)* |
 
 ---
@@ -151,7 +151,7 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 * **Menu 2: 🔵 Sutradara AI Satujalan (Biru Elektrik `#2563EB` / `#1D4ED8`)**
   * Badge: `● AI SUTRADARA & KONTEN`
   * Tombol: `✨ Buka Sutradara AI ↗`.
-  * Tautan resmi: 👉 `https://share.gemini.google/MoCJxV7tjDj4`
+  * Tautan resmi: 👉 `https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859`
   * Asisten sutradara AI cerdas untuk meracik konsep cerita, copywriting naskah hook tajam, arahan visual, dan strategi konten bertenaga AI Satujalan Suite.
   * **White-Label:** Teks kartu: *"Langsung Siap Pakai di Tab Baru Browser"*.
 * **Menu 3: 🟣 Voice Satujalan (Ungu Violet Elektrik `#8B5CF6` / `#6D28D9`)**
@@ -164,7 +164,7 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 ### 2. Navigasi Header Terintegrasi (Bar Atas Studio):
 Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan akses instan yang ringkas dan bersih:
 * Tombol **`🏠 Menu Utama`**: Beralih kembali ke portal 3 menu kapan saja.
-* Tombol **`✨ Sutradara AI`** *(Biru Elektrik `#2563EB`)*: Membuka Sutradara AI dalam 1 klik dari bar atas.
+* Tombol **`✨ Sutradara AI`** *(Biru Elektrik `#2563EB`)*: Membuka Sutradara AI resmi dalam 1 klik dari bar atas (ke `https://gemini.google.com/share/b23db3752db1...`).
 * Tombol **`⚙️ Kelola Member`**: Panel admin khusus Owner (`yulison47@gmail.com`).
 * Tombol **`Keluar`**: Keluar dari sesi dan mengunci aplikasi.
 * *Catatan Desain:* Tombol Voice Satujalan ditiadakan dari header bar atas agar header tetap rapi, ringkas, dan fokus untuk alur kerja video studio.
@@ -204,15 +204,15 @@ Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan ak
 
 ## 🔧 7. Riwayat Masalah & Solusi Teknis (Knowledge Base)
 
-1. **Penetapan Nama Sutradara AI:**
-   * *Kebutuhan:* Tombol di bar atas dan kartu ke-2 di Hub dinamai resmi **`Sutradara AI`** *(Biru Elektrik `#2563EB`)* dengan tautan langsung `https://share.gemini.google/MoCJxV7tjDj4`.
-   * *Solusi:* Seluruh label tombol dan kartu menggunakan **`✨ Sutradara AI`** secara konsisten.
+1. **Penetapan Tautan Resmi Sutradara AI:**
+   * *Kebutuhan:* Tautan klik Sutradara AI (baik di kartu Hub maupun tombol header) mengarah ke link resmi `https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859` (bukan link cliper).
+   * *Solusi:* Nilai konstanta `SUTRADARA_AI_URL`, tag `<a>` pada kartu Hub, tombol aksi modal, dan tombol header telah diperbarui ke tautan resmi tersebut.
 2. **Pembersihan Tombol Voice dari Header Bar:**
    * *Kebutuhan:* Menghilangkan tombol Voice Satujalan dari tampilan bar atas (Gambar 2).
    * *Solusi:* Tombol `sjVoiceLinkBtn` dihapus dari header actions agar bar navigasi studio tetap bersih dan proporsional.
 3. **Pemisahan 3 Menu dengan Warna Khusus:**
    * *Kebutuhan:* Memperluas menu pasca-login menjadi 3 menu (Edit Video, Sutradara AI, Voice Satujalan) dengan masing-masing warna berbeda agar mudah dihafal.
-   * *Solusi:* Merah `#FF0033` untuk Edit Video Canvas, Biru Elektrik `#2563EB` untuk Sutradara AI (`share.gemini.google/MoCJxV7tjDj4`), dan Ungu Violet `#8B5CF6` untuk Voice Satujalan (`gemini.google.com/share/ec689ac3cd26`).
+   * *Solusi:* Merah `#FF0033` untuk Edit Video Canvas, Biru Elektrik `#2563EB` untuk Sutradara AI, dan Ungu Violet `#8B5CF6` untuk Voice Satujalan.
 4. **White-Labeling Menyeluruh:**
    * *Kebutuhan:* Menghilangkan kata "Google Gemini" agar pengguna eksternal tidak mengetahui backend AI yang digunakan.
    * *Solusi:* Mengubah label menjadi "AI Satujalan Suite", "Sutradara AI", dan "Voice Satujalan" dengan deskripsi "Langsung Siap Pakai di Tab Baru Browser".
@@ -224,7 +224,7 @@ Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan ak
 
 ## 🚀 8. Prosedur Deploy Update ke GitHub & Vercel
 
-Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan Hub 3 Menu (Merah, Biru, Ungu), nama Sutradara AI resmi, serta tombol paten.
+Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan tautan resmi Sutradara AI yang benar, Hub 3 Menu (Merah, Biru, Ungu), serta tombol paten.
 
 Untuk memperbarui website live di [frame.satujalan.id](https://frame.satujalan.id):
 1. Buka browser ke: 👉 **[github.com/yopisonhaji/sj-frame](https://github.com/yopisonhaji/sj-frame)**

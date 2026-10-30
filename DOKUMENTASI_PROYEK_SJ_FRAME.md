@@ -20,7 +20,7 @@ Dokumen ini merupakan panduan teknis dan operasional komprehensif untuk **Frame 
 | **Menu 1 (Studio)** | **Edit Video Frame Satujalan** 🔴 *Merah Studio (`#FF0033`)* | Generator video kinetic motion & typography browser |
 | **Menu 2 (Cliper AI)** | [Cliper AI Satujalan](https://share.gemini.google/MoCJxV7tjDj4) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi Cliper: `https://share.gemini.google/MoCJxV7tjDj4` *(White-Label)* |
 | **Menu 3 (Voice Dubbing)**| [Voice Satujalan](https://gemini.google.com/share/ec689ac3cd26) 🟣 *Ungu Violet (`#8B5CF6`)* | Link resmi Voice: `https://gemini.google.com/share/ec689ac3cd26` *(White-Label)* |
-| **Header Nav (Sutradara)**| [Sutradara AI](https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi Sutradara AI: `https://gemini.google.com/share/b23db3752db1...` |
+| **Header Nav (Sutradara)**| [Sutradara AI](https://gemini.google.com/share/658bbd2ad0b7?social_preview=false&skid=43585bc7-a891-43a6-9aa0-a9292084f7bb) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi Sutradara AI: `https://gemini.google.com/share/658bbd2ad0b7...` |
 
 ---
 
@@ -75,7 +75,7 @@ flowchart TD
         Choice3 --> OpenVoice["Buka Voice Satujalan di Tab Baru Browser (ec689ac3cd26)<br/>(Text-to-Speech & Voiceover Audio Dubbing)"]
         
         VideoCanvas --> BackToHub["Klik '🏠 Menu Utama' di Header untuk Kembali ke Pilihan Menu Kapan Saja"]
-        VideoCanvas --> OpenSutradara["Klik '✨ Sutradara AI' di Header Atas<br/>(Membuka link resmi Sutradara AI b23db3752db1)"]
+        VideoCanvas --> OpenSutradara["Klik '✨ Sutradara AI' di Header Atas<br/>(Membuka link resmi Sutradara AI 658bbd2ad0b7)"]
         BackToHub --> ShowHub
     end
 ```
@@ -96,7 +96,7 @@ graph LR
         OAuth["Google OAuth 2.0 Auth Server"]
         GSheet[("Google Sheets Database<br/>(Member Whitelist)")]
         AppsScript["Google Apps Script Webhook<br/>(AKfycby1vuG...)"]
-        SutradaraAI["AI Sutradara Satujalan<br/>(b23db3752db1)"]
+        SutradaraAI["AI Sutradara Satujalan<br/>(658bbd2ad0b7)"]
         CliperAI["AI Cliper Satujalan<br/>(MoCJxV7tjDj4)"]
         VoiceAI["AI Voice Satujalan<br/>(ec689ac3cd26)"]
     end
@@ -147,7 +147,7 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan akses instan yang ringkas dan bersih:
 * Tombol **`🏠 Menu Utama`**: Beralih kembali ke portal 3 menu kapan saja.
 * Tombol **`✨ Sutradara AI`** *(Biru Elektrik `#2563EB`)*: Membuka Sutradara AI resmi dalam 1 klik dari bar atas ke:  
-  👉 `https://gemini.google.com/share/b23db3752db1?social_preview=false&skid=5e9b9883-316b-4b79-9467-abf94d5e5859` (bukan link cliper).
+  👉 `https://gemini.google.com/share/658bbd2ad0b7?social_preview=false&skid=43585bc7-a891-43a6-9aa0-a9292084f7bb`
 * Tombol **`⚙️ Kelola Member`**: Panel admin khusus Owner (`yulison47@gmail.com`).
 * Tombol **`Keluar`**: Keluar dari sesi dan mengunci aplikasi.
 
@@ -186,7 +186,7 @@ Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan ak
 
 ## 🚀 6. Prosedur Deploy Update ke GitHub & Vercel
 
-Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan pemisahan link yang tepat: Sutradara AI di header dan Cliper AI di Hub Card 2.
+Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan pemisahan link yang tepat: Sutradara AI di header (link 658bbd2ad0b7) dan Cliper AI di Hub Card 2 (link MoCJxV7tjDj4).
 
 Untuk memperbarui website live di [frame.satujalan.id](https://frame.satujalan.id):
 1. Buka browser ke: 👉 **[github.com/yopisonhaji/sj-frame](https://github.com/yopisonhaji/sj-frame)**

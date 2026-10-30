@@ -18,7 +18,7 @@ Dokumen ini merupakan panduan teknis dan operasional komprehensif untuk **Frame 
 | **Database Google Sheet** | [Buka Google Sheets Member](https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0) | ID: `1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok` *(Paten & Terkunci)* |
 | **Webhook Auto-Save** | `https://script.google.com/macros/s/AKfycby1vuG-mLuyNBS270jK-uMP4bY09gqJXA8D-fOg9PPcEIBa31934T5IS6OAoNeuyb1H/exec` | **Aktif 100% (Versi 3 - Siapa Saja / Anyone)** |
 | **Menu 1 (Studio)** | **Edit Video Frame Satujalan** 🔴 *Merah Studio (`#FF0033`)* | Generator video kinetic motion & typography browser |
-| **Menu 2 (Cliper AI)** | [Cliper AI Satujalan](https://share.gemini.google/MoCJxV7tjDj4) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi: `https://share.gemini.google/MoCJxV7tjDj4` *(White-Label)* |
+| **Menu 2 (Sutradara AI)**| [Sutradara AI Satujalan](https://share.gemini.google/MoCJxV7tjDj4) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi: `https://share.gemini.google/MoCJxV7tjDj4` *(White-Label)* |
 | **Menu 3 (Voice Dubbing)**| [Voice Satujalan](https://gemini.google.com/share/ec689ac3cd26) 🟣 *Ungu Violet (`#8B5CF6`)* | Link resmi: `https://gemini.google.com/share/ec689ac3cd26` *(White-Label)* |
 
 ---
@@ -66,11 +66,11 @@ flowchart TD
     %% Pilihan 3 Menu
     subgraph HubChoices ["🎯 SATUJALAN CREATOR HUB (3 MENU PILIHAN DENGAN WARNA BERBEDA)"]
         ShowHub --> Choice1["🔴 Menu 1 (Merah): Edit Video Frame Satujalan<br/>(Klik '🚀 Masuk ke Studio Edit')"]
-        ShowHub --> Choice2["🔵 Menu 2 (Biru): Cliper AI Satujalan<br/>(Klik '⚡ Buka Cliper AI ↗')"]
+        ShowHub --> Choice2["🔵 Menu 2 (Biru): Sutradara AI Satujalan<br/>(Klik '✨ Buka Sutradara AI ↗')"]
         ShowHub --> Choice3["🟣 Menu 3 (Ungu): Voice Satujalan<br/>(Klik '🎙️ Buka Voice Satujalan ↗')"]
         
         Choice1 --> VideoCanvas["Buka Studio Video Canvas (Editor Lengkap)<br/>Siap susun motion graphics & render MP4"]
-        Choice2 --> OpenCliper["Buka Cliper AI di Tab Baru Browser<br/>(Konsep Cerita, Naskah Konten, Hook Tajam)"]
+        Choice2 --> OpenSutradara["Buka Sutradara AI di Tab Baru Browser<br/>(Konsep Cerita, Naskah Konten, Hook Tajam)"]
         Choice3 --> OpenVoice["Buka Voice Satujalan di Tab Baru Browser<br/>(Text-to-Speech & Voiceover Audio Dubbing)"]
         
         VideoCanvas --> BackToHub["Klik '🏠 Menu Utama' di Header untuk Kembali ke Pilihan Menu Kapan Saja"]
@@ -116,7 +116,7 @@ graph LR
         OAuth["Google OAuth 2.0 Auth Server"]
         GSheet[("Google Sheets Database<br/>(Member Whitelist)")]
         AppsScript["Google Apps Script Webhook<br/>(AKfycby1vuG...)"]
-        CliperAI["AI Cliper Satujalan<br/>(Storyline & Hook)"]
+        SutradaraAI["AI Sutradara Satujalan<br/>(Storyline & Hook)"]
         VoiceAI["AI Voice Satujalan<br/>(Audio & Dubbing)"]
     end
 
@@ -132,7 +132,7 @@ graph LR
     Cloudflare -->|Routing CNAME| Vercel
     Vercel -->|Serve HTML/JS| App
     Hub -->|Akses Studio| App
-    Hub -->|Direct Link (Biru)| CliperAI
+    Hub -->|Direct Link (Biru)| SutradaraAI
     Hub -->|Direct Link (Ungu)| VoiceAI
 ```
 
@@ -148,11 +148,11 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
   * Badge: `● STUDIO VIDEO MOTION AI`
   * Tombol: `🚀 Masuk ke Studio Edit`.
   * Membuka studio pembuat video motion graphics, kinetic typography, b-roll AI, auto punch-in zoom, transisi sinematik, efek suara, dan render MP4 langsung di browser.
-* **Menu 2: 🔵 Cliper AI Satujalan (Biru Elektrik `#2563EB` / `#1D4ED8`)**
-  * Badge: `● AI CLIPER & KONTEN`
-  * Tombol: `⚡ Buka Cliper AI ↗`.
+* **Menu 2: 🔵 Sutradara AI Satujalan (Biru Elektrik `#2563EB` / `#1D4ED8`)**
+  * Badge: `● AI SUTRADARA & KONTEN`
+  * Tombol: `✨ Buka Sutradara AI ↗`.
   * Tautan resmi: 👉 `https://share.gemini.google/MoCJxV7tjDj4`
-  * Asisten cliper AI cerdas untuk meracik konsep cerita, copywriting naskah hook tajam, arahan visual, dan strategi konten klip bertenaga AI Satujalan Suite.
+  * Asisten sutradara AI cerdas untuk meracik konsep cerita, copywriting naskah hook tajam, arahan visual, dan strategi konten bertenaga AI Satujalan Suite.
   * **White-Label:** Teks kartu: *"Langsung Siap Pakai di Tab Baru Browser"*.
 * **Menu 3: 🟣 Voice Satujalan (Ungu Violet Elektrik `#8B5CF6` / `#6D28D9`)**
   * Badge: `● AI VOICE & DUBBING ENGINE`
@@ -164,7 +164,7 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 ### 2. Navigasi Header Terintegrasi (Bar Atas Studio):
 Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan akses instan yang ringkas dan bersih:
 * Tombol **`🏠 Menu Utama`**: Beralih kembali ke portal 3 menu kapan saja.
-* Tombol **`⚡ Cliper AI`** *(Biru Elektrik `#2563EB`)*: Membuka Cliper AI dalam 1 klik dari bar atas.
+* Tombol **`✨ Sutradara AI`** *(Biru Elektrik `#2563EB`)*: Membuka Sutradara AI dalam 1 klik dari bar atas.
 * Tombol **`⚙️ Kelola Member`**: Panel admin khusus Owner (`yulison47@gmail.com`).
 * Tombol **`Keluar`**: Keluar dari sesi dan mengunci aplikasi.
 * *Catatan Desain:* Tombol Voice Satujalan ditiadakan dari header bar atas agar header tetap rapi, ringkas, dan fokus untuk alur kerja video studio.
@@ -204,18 +204,18 @@ Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan ak
 
 ## 🔧 7. Riwayat Masalah & Solusi Teknis (Knowledge Base)
 
-1. **Revisi Penamaan Cliper AI:**
-   * *Kebutuhan:* Mengganti seluruh nama dan label dari "Sutradara AI" menjadi "Cliper AI" (atau "Cliper AI Satujalan").
-   * *Solusi:* Kartu 2 pada Hub diubah menjadi **`Cliper AI Satujalan`** dengan badge **`AI CLIPER & KONTEN`** dan tombol **`⚡ Buka Cliper AI`**. Tombol di header bar juga menggunakan label **`⚡ Cliper AI`**.
+1. **Penetapan Nama Sutradara AI:**
+   * *Kebutuhan:* Tombol di bar atas dan kartu ke-2 di Hub dinamai resmi **`Sutradara AI`** *(Biru Elektrik `#2563EB`)* dengan tautan langsung `https://share.gemini.google/MoCJxV7tjDj4`.
+   * *Solusi:* Seluruh label tombol dan kartu menggunakan **`✨ Sutradara AI`** secara konsisten.
 2. **Pembersihan Tombol Voice dari Header Bar:**
    * *Kebutuhan:* Menghilangkan tombol Voice Satujalan dari tampilan bar atas (Gambar 2).
    * *Solusi:* Tombol `sjVoiceLinkBtn` dihapus dari header actions agar bar navigasi studio tetap bersih dan proporsional.
 3. **Pemisahan 3 Menu dengan Warna Khusus:**
-   * *Kebutuhan:* Memperluas menu pasca-login menjadi 3 menu (Edit Video, Cliper AI, Voice Satujalan) dengan masing-masing warna berbeda agar mudah dihafal.
-   * *Solusi:* Merah `#FF0033` untuk Edit Video Canvas, Biru Elektrik `#2563EB` untuk Cliper AI (`share.gemini.google/MoCJxV7tjDj4`), dan Ungu Violet `#8B5CF6` untuk Voice Satujalan (`gemini.google.com/share/ec689ac3cd26`).
+   * *Kebutuhan:* Memperluas menu pasca-login menjadi 3 menu (Edit Video, Sutradara AI, Voice Satujalan) dengan masing-masing warna berbeda agar mudah dihafal.
+   * *Solusi:* Merah `#FF0033` untuk Edit Video Canvas, Biru Elektrik `#2563EB` untuk Sutradara AI (`share.gemini.google/MoCJxV7tjDj4`), dan Ungu Violet `#8B5CF6` untuk Voice Satujalan (`gemini.google.com/share/ec689ac3cd26`).
 4. **White-Labeling Menyeluruh:**
    * *Kebutuhan:* Menghilangkan kata "Google Gemini" agar pengguna eksternal tidak mengetahui backend AI yang digunakan.
-   * *Solusi:* Mengubah label menjadi "AI Satujalan Suite", "Cliper AI", dan "Voice Satujalan" dengan deskripsi "Langsung Siap Pakai di Tab Baru Browser".
+   * *Solusi:* Mengubah label menjadi "AI Satujalan Suite", "Sutradara AI", dan "Voice Satujalan" dengan deskripsi "Langsung Siap Pakai di Tab Baru Browser".
 5. **Patenisasi Tautan Google Sheet:**
    * *Kebutuhan:* Tombol hijau membuka file yang tepat tanpa terganggu cache browser.
    * *Solusi:* Hardcoded ke ID `1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok`.
@@ -224,7 +224,7 @@ Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan ak
 
 ## 🚀 8. Prosedur Deploy Update ke GitHub & Vercel
 
-Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan Hub 3 Menu (Merah, Biru, Ungu), nama Cliper AI resmi, serta tombol paten.
+Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan Hub 3 Menu (Merah, Biru, Ungu), nama Sutradara AI resmi, serta tombol paten.
 
 Untuk memperbarui website live di [frame.satujalan.id](https://frame.satujalan.id):
 1. Buka browser ke: 👉 **[github.com/yopisonhaji/sj-frame](https://github.com/yopisonhaji/sj-frame)**

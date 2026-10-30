@@ -424,7 +424,7 @@ html, body {
 
 .sj-hub-container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -471,7 +471,7 @@ html, body {
   font-size: 15px;
   color: #9E9EA7;
   margin: 0 auto;
-  max-width: 680px;
+  max-width: 600px;
   line-height: 1.6;
 }
 
@@ -482,11 +482,11 @@ html, body {
 
 .sj-hub-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .sj-hub-section {
     padding: 24px 14px;
   }
@@ -1499,7 +1499,7 @@ html, body {
         </div>
         <h2 class="sj-hub-card-title">Edit Video Frame Satujalan</h2>
         <p class="sj-hub-card-desc">
-          Studio pembuat video motion profesional otomatis. Dilengkapi kinetic typography bercahaya, b-roll AI, auto punch-in zoom, transisi sinematik, audio SFX, hingga render MP4 di browser.
+          Studio pembuat video motion profesional otomatis. Dilengkapi kinetic typography bercahaya, b-roll AI, auto punch-in zoom, transisi sinematik, audio SFX, hingga render MP4 langsung di browser.
         </p>
         <ul class="sj-hub-features">
           <li><span>⚡</span> Kinetic Subtitle & Typography Pendar</li>
@@ -1513,34 +1513,7 @@ html, body {
         </button>
       </div>
 
-      <!-- MENU 2: SUTRADARA AI -->
-      <div class="sj-hub-card sj-hub-card-sutradara">
-        <div class="sj-hub-card-badge">
-          <span class="sj-hub-icon-dot sj-dot-rose"></span>
-          AI DIRECTOR & STORYLINE
-        </div>
-        <div class="sj-hub-card-icon-wrap sj-icon-sutradara">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-        </div>
-        <h2 class="sj-hub-card-title">Sutradara AI Satujalan</h2>
-        <p class="sj-hub-card-desc">
-          Asisten sutradara AI eksklusif untuk merancang konsep alur cerita, arahan visual, copywriting naskah, dan formula hook pembuka video sebelum diproduksi di studio.
-        </p>
-        <ul class="sj-hub-features">
-          <li><span>🎭</span> Konsep & Alur Cerita Video Menarik</li>
-          <li><span>🎬</span> Panduan Arahan Visual & Tone Warna</li>
-          <li><span>📝</span> Formula Hook Naskah Pembuka Kuat</li>
-          <li><span>↗</span> Langsung Terbuka di Google Gemini</li>
-        </ul>
-        <a href="https://gemini.google.com/share/c5b85080d7a6?social_preview=false&skid=9b3c5111-1236-4bcb-871a-9b55c8052d78" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-sutradara">
-          <span>✨ Buka Sutradara AI</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
-      </div>
-
-      <!-- MENU 3: CLIP SATUJALAN -->
+      <!-- MENU 2: CLIP SATUJALAN -->
       <div class="sj-hub-card sj-hub-card-clip">
         <div class="sj-hub-card-badge">
           <span class="sj-hub-icon-dot sj-dot-purple"></span>
@@ -1553,13 +1526,13 @@ html, body {
         </div>
         <h2 class="sj-hub-card-title">Clip Satujalan</h2>
         <p class="sj-hub-card-desc">
-          Asisten AI cerdas untuk meracik ide konten viral, kurasi materi, penyusunan naskah hook tajam, dan strategi pemotongan klip video bertenaga Google Gemini resmi.
+          Asisten AI cerdas untuk meracik ide konten viral, kurasi materi, penyusunan naskah hook tajam, dan strategi pemotongan klip video bertenaga AI Satujalan Suite.
         </p>
         <ul class="sj-hub-features">
           <li><span>💡</span> Racik Ide Konten & Hook Menusuk</li>
           <li><span>✂️</span> Struktur Pemotongan Klip Tajam & Viral</li>
-          <li><span>🤖</span> Generator Naskah AI Gemini Eksklusif</li>
-          <li><span>↗</span> Langsung Terbuka di Google Gemini</li>
+          <li><span>🤖</span> Generator Naskah AI Otomatis & Cerdas</li>
+          <li><span>🚀</span> Langsung Siap Pakai di Tab Baru Browser</li>
         </ul>
         <a href="https://share.gemini.google/MoCJxV7tjDj4" target="_blank" rel="noopener noreferrer" class="sj-hub-btn sj-hub-btn-clip">
           <span>⚡ Buka Clip Satujalan</span>
@@ -2587,23 +2560,7 @@ function handleRequest(e){
       headerActions.insertBefore(hubNavBtn, userPill.nextSibling);
     }
 
-    // 2. Tombol Sutradara AI (Konsep & Storyline)
-    let sutradaraBtn = document.getElementById('sjSutradaraLinkBtn');
-    if (!sutradaraBtn) {
-      sutradaraBtn = document.createElement('a');
-      sutradaraBtn.id = 'sjSutradaraLinkBtn';
-      sutradaraBtn.className = 'sj-sutradara-btn';
-      sutradaraBtn.href = SUTRADARA_AI_URL;
-      sutradaraBtn.target = '_blank';
-      sutradaraBtn.rel = 'noopener noreferrer';
-      sutradaraBtn.innerHTML = '<span class="sj-full-txt">✨ Sutradara AI</span><span class="sj-mob-txt">✨ AI</span>';
-      sutradaraBtn.title = 'Buka Sutradara AI (Konsep & Storyline Video)';
-      headerActions.insertBefore(sutradaraBtn, hubNavBtn.nextSibling);
-    } else {
-      sutradaraBtn.href = SUTRADARA_AI_URL;
-    }
-
-    // 3. Tombol Clip Satujalan (Ide & Clipping Konten)
+    // 2. Tombol Clip Satujalan (Ide & Clipping Konten)
     let clipBtn = document.getElementById('sjClipLinkBtn');
     if (!clipBtn) {
       clipBtn = document.createElement('a');
@@ -2614,7 +2571,7 @@ function handleRequest(e){
       clipBtn.rel = 'noopener noreferrer';
       clipBtn.innerHTML = '<span class="sj-full-txt">⚡ Clip Satujalan</span><span class="sj-mob-txt">⚡ Clip</span>';
       clipBtn.title = 'Buka Clip Satujalan (Ide & Clipping Konten)';
-      headerActions.insertBefore(clipBtn, sutradaraBtn.nextSibling);
+      headerActions.insertBefore(clipBtn, hubNavBtn.nextSibling);
     } else {
       clipBtn.href = CLIP_SATUJALAN_URL;
     }

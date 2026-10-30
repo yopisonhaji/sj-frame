@@ -18,7 +18,7 @@ Dokumen ini merupakan panduan teknis dan operasional komprehensif untuk **Frame 
 | **Database Google Sheet** | [Buka Google Sheets Member](https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0) | ID: `1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok` *(Paten & Terkunci)* |
 | **Webhook Auto-Save** | `https://script.google.com/macros/s/AKfycby1vuG-mLuyNBS270jK-uMP4bY09gqJXA8D-fOg9PPcEIBa31934T5IS6OAoNeuyb1H/exec` | **Aktif 100% (Versi 3 - Siapa Saja / Anyone)** |
 | **Menu 1 (Studio)** | **Edit Video Frame Satujalan** | Generator video kinetic motion & typography browser |
-| **Menu 2 (Clipper AI)** | [Clip Satujalan (AI Suite)](https://share.gemini.google/MoCJxV7tjDj4) | Link resmi: `https://share.gemini.google/MoCJxV7tjDj4` *(White-Label)* |
+| **Menu 2 (AI Asisten)** | [Sutradara AI Satujalan](https://share.gemini.google/MoCJxV7tjDj4) | Link resmi: `https://share.gemini.google/MoCJxV7tjDj4` *(White-Label)* |
 
 ---
 
@@ -65,9 +65,9 @@ flowchart TD
     %% Pilihan 2 Menu
     subgraph HubChoices ["🎯 SATUJALAN CREATOR HUB (2 MENU PILIHAN)"]
         ShowHub --> Choice1["🎬 Menu 1: Edit Video Frame Satujalan<br/>(Klik 'Masuk ke Studio Edit')"]
-        ShowHub --> Choice2["⚡ Menu 2: Clip Satujalan<br/>(Klik 'Buka Clip Satujalan ↗')"]
+        ShowHub --> Choice2["✨ Menu 2: Sutradara AI Satujalan<br/>(Klik 'Buka Sutradara AI ↗')"]
         Choice1 --> VideoCanvas["Buka Studio Video Canvas (Landing / Editor)<br/>Siap susun motion graphics & render MP4"]
-        Choice2 --> OpenClip["Buka Workspace AI Clip Satujalan di Tab Baru Browser<br/>(Kurasi Ide & Klip Konten)"]
+        Choice2 --> OpenSutradara["Buka Workspace Sutradara AI di Tab Baru Browser<br/>(Konsep Cerita & Naskah Konten)"]
         VideoCanvas --> BackToHub["Klik '🏠 Menu Utama' di Header untuk Kembali ke Pilihan Menu Kapan Saja"]
         BackToHub --> ShowHub
     end
@@ -111,7 +111,7 @@ graph LR
         OAuth["Google OAuth 2.0 Auth Server"]
         GSheet[("Google Sheets Database<br/>(Member Whitelist)")]
         AppsScript["Google Apps Script Webhook<br/>(AKfycby1vuG...)"]
-        ClipAI["AI Engine Clip Satujalan<br/>(Workspace AI Satujalan)"]
+        SutradaraAI["AI Engine Sutradara AI<br/>(Workspace AI Satujalan)"]
     end
 
     subgraph Hosting ["Vercel Edge Network"]
@@ -126,7 +126,7 @@ graph LR
     Cloudflare -->|Routing CNAME| Vercel
     Vercel -->|Serve HTML/JS| App
     Hub -->|Akses Studio| App
-    Hub -->|Direct Link| ClipAI
+    Hub -->|Direct Link| SutradaraAI
 ```
 
 ---
@@ -139,15 +139,15 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 * **Menu 1: 🎬 Edit Video Frame Satujalan**
   * Tombol: `🚀 Masuk ke Studio Edit`.
   * Membuka studio pembuat video motion graphics, kinetic typography, b-roll AI, auto punch-in zoom, transisi sinematik, efek suara, dan render MP4 langsung di browser.
-* **Menu 2: ⚡ Clip Satujalan**
-  * Tombol: `⚡ Buka Clip Satujalan ↗`.
+* **Menu 2: ✨ Sutradara AI Satujalan**
+  * Tombol: `✨ Buka Sutradara AI ↗`.
   * Tautan resmi: 👉 `https://share.gemini.google/MoCJxV7tjDj4`
-  * Asisten AI cerdas untuk meracik ide viral, kurasi materi konten, dan strategi pemotongan klip video bertenaga AI Satujalan Suite.
+  * Asisten sutradara AI cerdas untuk meracik alur cerita, copywriting naskah hook tajam, arahan visual, dan strategi konten bertenaga AI Satujalan Suite.
   * **Kebijakan White-Label:** Kalimat teks di kartu berbunyi **"Langsung Siap Pakai di Tab Baru Browser"** dan **"Generator Naskah AI Otomatis & Cerdas"** tanpa menyebut nama Google Gemini agar privasi brand Satujalan tetap 100% terjaga.
 
 ### 2. Navigasi Header Terintegrasi:
 * Tombol **`🏠 Menu Utama`**: Beralih kembali ke portal 2 menu kapan saja tanpa kehilangan draf.
-* Tombol **`⚡ Clip Satujalan`** (Electric Blue Glow): Membuka Clip Satujalan dalam 1 klik dari bar atas.
+* Tombol **`✨ Sutradara AI`** (Crimson Red Glow): Membuka Sutradara AI dalam 1 klik dari bar atas dengan warna merah pendar khas YouTube Studio.
 * Klik pada Logo **`Frame`** di pojok kiri atas otomatis membawa pengguna kembali ke Menu Utama saat login aktif.
 
 ### 3. Auto-Masuk ke Google Sheet Sekali Klik:
@@ -163,9 +163,10 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
   👉 `https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0`
 * Dilengkapi sistem pembersih otomatis (*auto-purge*) pada memori browser agar tombol dijamin 100% selalu membuka spreadsheet resmi Anda tanpa error "file tidak ada".
 
-### 6. YouTube Studio Dark Mode Aesthetic:
+### 6. YouTube Studio Dark Mode Aesthetic & Satujalan.id Copyright:
 * Latar belakang obsidian dark `#0F0F0F` dengan kartu abu-abu gelap `#161618`.
-* Border halus `#27272A` dan aksen merah menyala `#FF0033` untuk Video Studio, serta biru listrik `#2563EB` untuk Clip Satujalan.
+* Border halus `#27272A` dan aksen merah menyala `#FF0033` untuk Video Studio dan Sutradara AI.
+* Hak cipta resmi: `© 2026 Satujalan.id`.
 * Logo wordmark `[ Frame ]` dengan bracket sudut viewfinder kamera menyala merah.
 
 ### 7. Autentikasi Google GIS Murni & Aman:
@@ -195,9 +196,9 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 
 ## 🔧 7. Riwayat Masalah & Solusi Teknis (Knowledge Base)
 
-1. **White-Label & Penghapusan Menu Sutradara AI:**
-   * *Kebutuhan:* Owner tidak ingin pengguna mengetahui bahwa asisten menggunakan model Google Gemini, dan ingin menu kembali murni menjadi **2 Menu** saja (Edit Video Frame Satujalan dan Clip Satujalan).
-   * *Solusi:* Menu Sutradara AI dihilangkan dari Hub dan navigasi atas. Seluruh teks antarmuka yang memuat nama "Google Gemini" diubah total menjadi nama yang netral dan profesional seperti "Langsung Siap Pakai di Tab Baru Browser" dan "bertenaga AI Satujalan Suite".
+1. **Penamaan Tombol & Kartu Sutradara AI:**
+   * *Kebutuhan:* Tombol navigasi atas dan kartu menu AI dinamai **`Sutradara AI`** dengan tampilan merah menyala khas Frame Studio, mengarah langsung ke URL `https://share.gemini.google/MoCJxV7tjDj4`.
+   * *Solusi:* Tombol di bar atas dan kartu ke-2 di Hub resmi diubah menjadi **`✨ Sutradara AI`**, tetap menerapkan kebijakan white-label tanpa penyebutan Google Gemini.
 2. **Masalah Akses Google Sheet Awal (Status Restricted):**
    * *Penyebab:* Google Sheet baru dibuat berstatus "Dibatasi", sehingga pembacaan via API gviz terblokir login Google.
    * *Solusi:* Akses diubah menjadi "Siapa saja yang memiliki link" (*Anyone with the link*) sebagai "Pelihat" (*Viewer*).

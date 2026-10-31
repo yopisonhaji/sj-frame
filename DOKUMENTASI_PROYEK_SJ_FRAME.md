@@ -18,7 +18,7 @@ Dokumen ini merupakan panduan teknis dan operasional komprehensif untuk **Frame 
 | **Database Google Sheet** | [Buka Google Sheets Member](https://docs.google.com/spreadsheets/d/1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok/edit?gid=0#gid=0) | ID: `1wnRppGqNZ44Erwy-mBWKeoCPyvWSeYR-1xQFiVTc-Ok` *(Paten & Terkunci)* |
 | **Webhook Auto-Save** | `https://script.google.com/macros/s/AKfycby1vuG-mLuyNBS270jK-uMP4bY09gqJXA8D-fOg9PPcEIBa31934T5IS6OAoNeuyb1H/exec` | **Aktif 100% (Versi 3 - Siapa Saja / Anyone)** |
 | **Menu 1 (Studio)** | **Edit Video Frame Satujalan** 🔴 *Merah Studio (`#FF0033`)* | Generator video kinetic motion & typography browser |
-| **Menu 2 (Cliper AI)** | [Cliper AI Satujalan](https://share.gemini.google/sOxX4GYQAOOR) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi Cliper: `https://share.gemini.google/sOxX4GYQAOOR` *(White-Label)* |
+| **Menu 2 (Cliper AI)** | [Cliper AI Satujalan](https://share.gemini.google/9BOAvc7kM0rf) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi Cliper: `https://share.gemini.google/9BOAvc7kM0rf` *(White-Label)* |
 | **Menu 3 (Voice Dubbing)**| [Voice Satujalan](https://gemini.google.com/share/ec689ac3cd26) 🟣 *Ungu Violet (`#8B5CF6`)* | Link resmi Voice: `https://gemini.google.com/share/ec689ac3cd26` *(White-Label)* |
 | **Header Nav (Sutradara)**| [Sutradara AI](https://gemini.google.com/share/658bbd2ad0b7?social_preview=false&skid=43585bc7-a891-43a6-9aa0-a9292084f7bb) 🔵 *Biru Elektrik (`#2563EB`)* | Link resmi Sutradara AI: `https://gemini.google.com/share/658bbd2ad0b7...` |
 
@@ -71,7 +71,7 @@ flowchart TD
         ShowHub --> Choice3["🟣 Menu 3 (Ungu): Voice Satujalan<br/>(Klik '🎙️ Buka Voice Satujalan ↗')"]
         
         Choice1 --> VideoCanvas["Buka Studio Video Canvas (Editor Lengkap)<br/>Siap susun motion graphics & render MP4"]
-        Choice2 --> OpenCliper["Buka Cliper AI di Tab Baru Browser (sOxX4GYQAOOR)<br/>(Konsep Cerita, Naskah Konten, Hook Klip)"]
+        Choice2 --> OpenCliper["Buka Cliper AI di Tab Baru Browser (9BOAvc7kM0rf)<br/>(Konsep Cerita, Naskah Konten, Hook Klip)"]
         Choice3 --> OpenVoice["Buka Voice Satujalan di Tab Baru Browser (ec689ac3cd26)<br/>(Text-to-Speech & Voiceover Audio Dubbing)"]
         
         VideoCanvas --> BackToHub["Klik '🏠 Menu Utama' di Header untuk Kembali ke Pilihan Menu Kapan Saja"]
@@ -97,7 +97,7 @@ graph LR
         GSheet[("Google Sheets Database<br/>(Member Whitelist)")]
         AppsScript["Google Apps Script Webhook<br/>(AKfycby1vuG...)"]
         SutradaraAI["AI Sutradara Satujalan<br/>(658bbd2ad0b7)"]
-        CliperAI["AI Cliper Satujalan<br/>(sOxX4GYQAOOR)"]
+        CliperAI["AI Cliper Satujalan<br/>(9BOAvc7kM0rf)"]
         VoiceAI["AI Voice Satujalan<br/>(ec689ac3cd26)"]
     end
 
@@ -133,7 +133,7 @@ Sistem menyambut pengguna dengan **Satujalan Creator Hub** yang elegan bertema O
 * **Menu 2: 🔵 Cliper AI Satujalan (Biru Elektrik `#2563EB` / `#1D4ED8`)**
   * Badge: `● AI CLIPER & KONTEN`
   * Tombol: `⚡ Buka Cliper AI ↗`.
-  * Tautan resmi Cliper: 👉 `https://share.gemini.google/sOxX4GYQAOOR`
+  * Tautan resmi Cliper: 👉 `https://share.gemini.google/9BOAvc7kM0rf`
   * Asisten cliper AI cerdas untuk meracik konsep cerita, copywriting naskah hook tajam, arahan visual, dan strategi klip konten bertenaga AI Satujalan Suite.
   * **White-Label:** Teks kartu: *"Langsung Siap Pakai di Tab Baru Browser"*.
 * **Menu 3: 🟣 Voice Satujalan (Ungu Violet Elektrik `#8B5CF6` / `#6D28D9`)**
@@ -186,7 +186,7 @@ Ketika masuk ke dalam ruang kerja Studio Video, bar navigasi atas menyediakan ak
 
 ## 🚀 6. Prosedur Deploy Update ke GitHub & Vercel
 
-Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan pemisahan link yang tepat: Sutradara AI di header (link 658bbd2ad0b7) dan Cliper AI di Hub Card 2 (link sOxX4GYQAOOR).
+Seluruh kode program di [index.html](file:///d:/SJ%20MOTION/index.html) sudah siap dan telah ditanamkan pemisahan link yang tepat: Sutradara AI di header (link 658bbd2ad0b7) dan Cliper AI di Hub Card 2 (link 9BOAvc7kM0rf).
 
 Untuk memperbarui website live di [frame.satujalan.id](https://frame.satujalan.id):
 1. Buka browser ke: 👉 **[github.com/yopisonhaji/sj-frame](https://github.com/yopisonhaji/sj-frame)**
